@@ -232,5 +232,3 @@ class Test{
 
 위와같이 static과 non-static 함수가 같은 count 변수를 공유한다면 동기화가 제대로 이루어지지 않아서 간헐적으로 동기화 이슈가 발생한다. 찾기도 힘들고 절대 이렇게 쓰지말것.
 
-concurreny 는 왜 나왔고 Basic synchronized 는 뭐가 문제가 있나? volatile Atomic
-
