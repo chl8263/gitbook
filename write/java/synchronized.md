@@ -8,7 +8,7 @@ Multi-thread로 인해 자원을 동기화 해야하는 경우가 발생한다. 
 
 Thread Multi-thread 환경에서 프로그램적으로 좋은 성능을 기대하지만 **Synchronized** 키워드를 남발하거나 적시적소에 사용하지 못한다면 성능 저하를 불러온다. 왜냐면 block, unblock 하는 것도 전부 일이기 때문.
 
-## Useage
+## Usage
 
 Synchronized의 사용법은 2가지로 나뉜다.
 
@@ -198,6 +198,39 @@ class Test{
 ```
 
 위처럼 synchronized block에 각기 다른 Object를 동기화하여 훨씬더 효율적인 코드가 된다.
+
+### Static 의 경우
+
+static method 에 **synchronized** 키워드가 붙는다면 객체의 인스턴스를 기준으로 lock을 잡는것이 아니라 **class 자체에 lock을 걸게 된다.**
+
+```java
+  public static synchronized void add(int value){
+      count += value;
+  }
+```
+
+### Static 과 non-static 을 혼용하여 사용할 경우
+
+그럼 static 은 class를 기준으로 lock 을걸고 non-static 은 객체를 기준으로 lock을 걸기때문에 서로 lock을 거는것이 따로 놀게된다.
+
+```java
+class Test{
+
+    private static Integer count = 0;
+
+    public static synchronized void addCount(){
+        count++;
+        System.out.println(Thread.currentThread() + " - " + count);
+    }
+
+    public synchronized void addCount2(){
+        count++;
+        System.out.println(Thread.currentThread() + " - " + count);
+    }
+}
+```
+
+위와같이 static과 non-static 함수가 같은 count 변수를 공유한다면 동기화가 제대로 이루어지지 않아서 간헐적으로 동기화 이슈가 발생한다. 찾기도 힘들고 절대 이렇게 쓰지말것.
 
 concurreny 는 왜 나왔고 Basic synchronized 는 뭐가 문제가 있나? volatile Atomic
 
