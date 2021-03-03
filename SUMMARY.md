@@ -2,4 +2,5 @@
 
 * [Initial page](README.md)
 * [write](untitled.md)
+* [manual](manual.md)
 
