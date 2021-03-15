@@ -28,7 +28,7 @@ Java 에서 ExecuterService 인터페이스, Executor 클래스를 제공하고 
 
 * Executors.newFixedThreadPool\(int nThread\)
 
- 고정된 Thread 갯수를 지정하여 사용하기 위
+ 고정된 Thread 갯수를 지정하여 사용하기 위해 사
 
 * Executors.newCachedThreadPool\(\)
 
