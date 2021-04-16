@@ -15,3 +15,8 @@
 
 ## manual <a id="manual-1"></a>
 
+---
+
+* [ETC](etc/README.md)
+  * [window 에서 블루투스 원격제어끄기](etc/window.md)
+
