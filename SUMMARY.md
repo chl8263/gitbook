@@ -20,3 +20,7 @@
 * [ETC](etc/README.md)
   * [window 에서 블루투스 원격제어끄기](etc/window.md)
 
+## STUDY
+
+* [오브젝트](study/undefined.md)
+
