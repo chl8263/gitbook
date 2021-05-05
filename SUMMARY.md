@@ -22,5 +22,6 @@
 
 ## STUDY
 
-* [오브젝트](study/undefined.md)
+* [오브젝트](study/undefined/README.md)
+  * [ch01. 객체, 설계](study/undefined/ch01..md)
 
