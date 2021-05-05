@@ -13,15 +13,17 @@
   * [/etc/rc.d/init.d/\* 파일들의 이해](write/linux/etc-rc.d-init.d.md)
   * [tar, rpm, 아카이브, 압축](write/linux/tar-rpm.md)
 
-## manual <a id="manual-1"></a>
-
----
-
-* [ETC](etc/README.md)
-  * [window 에서 블루투스 원격제어끄기](etc/window.md)
-
 ## STUDY
 
 * [오브젝트](study/undefined/README.md)
   * [ch01. 객체, 설계](study/undefined/ch01..md)
+  * [ch02. 객체지향 프로그래밍](study/undefined/ch02..md)
+
+## manual <a id="manual-1"></a>
+
+## ETC <a id="etc-1"></a>
+
+---
+
+* [window 에서 블루투스 원격제어끄기](window.md)
 
