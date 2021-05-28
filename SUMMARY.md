@@ -19,6 +19,7 @@
 * [오브젝트](study/undefined/README.md)
   * [ch01. 객체, 설계](study/undefined/ch01..md)
   * [ch02. 객체지향 프로그래밍](study/undefined/ch02..md)
+  * [ch03. 역할, 책임, 협력](study/undefined/ch03..md)
 
 ## manual <a id="manual-1"></a>
 
