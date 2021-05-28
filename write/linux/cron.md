@@ -10,7 +10,7 @@ Cron은 시스템이 부팅할 때 시작되고 데몬으로 백그라운드에�
 
 실행시점에 crontab이란 파일을 읽어서 수행 한다.
 
-###  **Cron 과 crontab의 차**
+###  **Cron 과 crontab의 차이** 
 
 cron과 crontab은 담당 역할이 다르다고 볼 수 있다.
 
@@ -20,7 +20,7 @@ cron : 실행,
 
 crontab : 설정
 
-### Crontab 읽는 방
+### Crontab 읽는 방법 
 
 예를들어 시스템 전체에 사용되는 crontab인 /etc/crontab 은 아래와 같다.
 
