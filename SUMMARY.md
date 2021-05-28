@@ -11,6 +11,7 @@
   * [volatile, atomic](write/java/volatile-atomic.md)
   * [Synchronized 정리](write/java/synchronized.md)
 * [Linux](write/linux/README.md)
+  * [Cron : 리눅스 작업 스케줄러](write/linux/cron.md)
   * [/etc/rc.d/init.d/\* 파일들의 이해](write/linux/etc-rc.d-init.d.md)
   * [tar, rpm, 아카이브, 압축](write/linux/tar-rpm.md)
 
