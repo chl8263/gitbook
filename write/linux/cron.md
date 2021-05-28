@@ -122,7 +122,7 @@ PATH=/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin
 
 이때 /etc/cron.d 에 등록되는 파일의 권한이 낮으면 낮을 수 록 좋다. 
 
-#### 권한이 700 번대로 넘어가면 Cron 이 자체적으로 위험할 수 있는 파일 이라고 인식하여 돌리지 않음
+#### <span style="color:red">권한이 700 번대로 넘어가면 Cron 이 자체적으로 위험할 수 있는 파일 이라고 인식하여 돌리지 않음</span>
 
 #### - 취약점 점검기준 -
 
