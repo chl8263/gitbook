@@ -4,6 +4,8 @@
 
 ## write
 
+* [WEB](write/web/README.md)
+  * [Web server, WAS 의 이해](write/web/web-server-was.md)
 * [Java](write/java/README.md)
   * [BigDecimal](write/java/bigdecimal.md)
   * [Thread pool](write/java/thread-pool.md)
@@ -22,11 +24,7 @@
   * [ch02. 객체지향 프로그래밍](study/undefined/ch02..md)
   * [ch03. 역할, 책임, 협력](study/undefined/ch03..md)
 
-## manual <a id="manual-1"></a>
-
 ## ETC <a id="etc-1"></a>
 
----
-
-* [window 에서 블루투스 원격제어끄기](window.md)
+* [window 에서 블루투스 원격제어끄기](etc-1/window.md)
 

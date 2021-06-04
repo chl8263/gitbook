@@ -10,17 +10,17 @@ Cron은 시스템이 부팅할 때 시작되고 데몬으로 백그라운드에�
 
 실행시점에 crontab이란 파일을 읽어서 수행 한다.
 
-###  **Cron 과 crontab의 차이** 
+### **Cron 과 crontab의 차이**
 
 cron과 crontab은 담당 역할이 다르다고 볼 수 있다.
 
 crontab은 스케줄 시간과 실행할 파일의 경로를 관리하고, cron은 crontab을 실행한다.
 
-cron : 실행, 
+cron : 실행,
 
 crontab : 설정
 
-### Crontab 읽는 방법 
+### Crontab 읽는 방법
 
 예를들어 시스템 전체에 사용되는 crontab인 /etc/crontab 은 아래와 같다.
 
@@ -34,13 +34,13 @@ crontab : 설정
 SHELL=/bin/sh
 PATH=/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin
 
-17 *	* * *	root    cd / && run-parts --report /etc/cron.hourly
-25 6	* * *	root	test -x /usr/sbin/anacron || ( cd / && run-parts --report /etc/cron.daily )
-47 6	* * 7	root	test -x /usr/sbin/anacron || ( cd / && run-parts --report /etc/cron.weekly )
-52 6	1 * *	root	test -x /usr/sbin/anacron || ( cd / && run-parts --report /etc/cron.monthly )
+17 *    * * *    root    cd / && run-parts --report /etc/cron.hourly
+25 6    * * *    root    test -x /usr/sbin/anacron || ( cd / && run-parts --report /etc/cron.daily )
+47 6    * * 7    root    test -x /usr/sbin/anacron || ( cd / && run-parts --report /etc/cron.weekly )
+52 6    1 * *    root    test -x /usr/sbin/anacron || ( cd / && run-parts --report /etc/cron.monthly )
 ```
 
-이 파일은 system crontab 이므로 수정하지 말아야 하고 시스템이 갱신될 때 파일이 교체되므로 수정사항을  잃게 된다. 고로 사용자만의 crontab을 만들어서 사용하도록 하자.
+이 파일은 system crontab 이므로 수정하지 말아야 하고 시스템이 갱신될 때 파일이 교체되므로 수정사항을 잃게 된다. 고로 사용자만의 crontab을 만들어서 사용하도록 하자.
 
 파일의 첫 두 줄은 명령을 실행할 쉘과 프로그램을 검사할 경로를 명시한다. 파일의 나머지는 실제 명령과 예약을 나타낸다.
 
@@ -57,7 +57,7 @@ PATH=/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin
 # * * * * * command to execute
 ```
 
- 각 별 위치에 따라 주기를 다르게 설정 할 수 있다. 순서대로 **분-시간-일-월-요일** 순이다. 
+각 별 위치에 따라 주기를 다르게 설정 할 수 있다. 순서대로 **분-시간-일-월-요일** 순이다.
 
 괄호 안의 숫자 범위 내로 별 대신 입력 할 수 있다.
 
@@ -120,9 +120,9 @@ PATH=/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin
 42 9 * * * root sh /usr/local/test.sh
 ```
 
-이때 /etc/cron.d 에 등록되는 파일의 권한이 낮으면 낮을 수 록 좋다. 
+이때 /etc/cron.d 에 등록되는 파일의 권한이 낮으면 낮을 수 록 좋다.
 
-#### <span style="color:red">권한이 700 번대로 넘어가면 Cron 이 자체적으로 위험할 수 있는 파일 이라고 인식하여 돌리지 않음</span>
+#### 권한이 700 번대로 넘어가면 Cron 이 자체적으로 위험할 수 있는 파일 이라고 인식하여 돌리지 않음
 
 #### - 취약점 점검기준 -
 
