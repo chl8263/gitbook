@@ -20,6 +20,7 @@
 ## STUDY
 
 * [오브젝트](study/undefined/README.md)
+  * [ch04.설계 품질과 트레이드오프](study/undefined/ch04..md)
   * [ch01. 객체, 설계](study/undefined/ch01..md)
   * [ch02. 객체지향 프로그래밍](study/undefined/ch02..md)
   * [ch03. 역할, 책임, 협력](study/undefined/ch03..md)
