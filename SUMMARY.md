@@ -22,6 +22,7 @@
 
 * [Kotlin In Action](study/kotlin-in-action/README.md)
   * [ch.01 코틀린이란 무엇이며. 왜 필요한가?](study/kotlin-in-action/ch.01-..md)
+  * [ch.02 코틀린 기초](study/kotlin-in-action/ch.02.md)
 * [오브젝트](study/undefined/README.md)
   * [ch.7 객체 분해](study/undefined/ch.7.md)
   * [ch.6 메시지와 인터페이스](study/undefined/ch.6.md)
