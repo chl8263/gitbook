@@ -25,13 +25,14 @@
   * [ch.02 코틀린 기초](study/kotlin-in-action/ch.02.md)
   * [ch.03 함수 정의와 호출](study/kotlin-in-action/ch.03.md)
 * [오브젝트](study/undefined/README.md)
-  * [ch.7 객체 분해](study/undefined/ch.7.md)
-  * [ch.6 메시지와 인터페이스](study/undefined/ch.6.md)
-  * [ch.5 책임 할당하기](study/undefined/ch.5.md)
-  * [ch04.설계 품질과 트레이드오프](study/undefined/ch04..md)
+  * [ch8. 의존성 관리하기](study/undefined/ch8..md)
   * [ch01. 객체, 설계](study/undefined/ch01..md)
   * [ch02. 객체지향 프로그래밍](study/undefined/ch02..md)
   * [ch03. 역할, 책임, 협력](study/undefined/ch03..md)
+  * [ch04.설계 품질과 트레이드오프](study/undefined/ch04..md)
+  * [ch.5 책임 할당하기](study/undefined/ch.5.md)
+  * [ch.6 메시지와 인터페이스](study/undefined/ch.6.md)
+  * [ch.7 객체 분해](study/undefined/ch.7.md)
 
 ## ETC <a id="etc-1"></a>
 
