@@ -34,6 +34,7 @@
   * [ch.7 객체 분해](study/undefined/ch.7.md)
   * [ch8. 의존성 관리하기](study/undefined/ch8..md)
   * [ch9. 유연한 설계](study/undefined/ch9..md)
+  * [ch10. 상속과 코드 재사용](study/undefined/ch10..md)
 
 ## ETC <a id="etc-1"></a>
 
