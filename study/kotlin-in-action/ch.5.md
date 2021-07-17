@@ -200,11 +200,129 @@ fun main(args: Array<String>) {
 
 ## 3.지연 계산\(lazy\) 컬렉션 연산
 
-> ! 싱글턴과 의존관계 주입
+map 과 filter같은 함수는 컬렉션을 즉시 생성한다. 이는 컬렉션 함수를 연쇄하면 매 단계마다 게산 중간 결과를 새로운 컬렉션에 임시로 담는다는 말이다. `시퀀스` 를 사용하면 중간 임시 컬렉션을 사용하지 않고도 컬렉션 연산을 연쇄할 수 있다.
 
-싱글턴 패턴은 소규모 프로젝트에는 적합 하지만 대규모 소프트웨어 시스템에서는 객체 선언이 항상 적합하지는 않는다.
+```kotlin
+people.map(Person::name).filter {it.startWith("A") }
+```
 
-이유는 객체 생성을 제어할 방법이 없고 생성자 파라미터를 지정할 수 없기 때문이다.
+위의 코드는 연쇄 호출이 리스트를 2번 만든다는 뜻이고, 이 연쇄가 100번이면 굉장히 비효율적임.
 
-이런 상황에서는 의존관계 프레임워크를 사용하는 것이 좋다.
+이를 더 효율적으로 만들기 위한 것이 `시퀀스`다.
+
+```kotlin
+data class Person(val name: String, val age: Int)
+val people = listOf(Person("Alice", 27), Person("Bob", 31))
+
+people.asSequence()
+    .map(Person::name)
+    .filter { it.startsWith("A") }
+    .toList()    // 컬렉션으로 변환
+```
+
+위의 코드는 중간 결과를 따로 저장하거나 생성하지 않기 때문에 성능이 눈에 띄게 좋아진다.
+
+시퀀스에 대한 연산을 `지연` 계산하기 때문에 정말 계산을 실행하게 만들려면 최종 시퀀스의 원소를 하나씩 이터레이션하거나 최종 시퀀스를 리스트로 변환해야 한다.
+
+### 3.1 시퀀스 연산 실행: 중간 연산과 최종 연산
+
+시퀀스에 대한 연산은 `중간 연산`과 `최종 연산` 으로 나뉜다. 중간 연산은 `다른 시퀀스를 반환`한다. `최종 연산`은 결과를 반환한다.
+
+`중간 연산`은 항상 지연 계산된다. 최종 연산이 없는 \(컬렉션으로 변환\) 경우 아무 내용도 출력되지 않는다.
+
+```kotlin
+people.map(Person::name)
+    .filter { it.startsWith("A") }
+```
+
+위의 코드처럼 시퀀스가 아닌 직접 연산을 할 경우 map함수에 대해 먼저 시퀀스를 얻고 그 시퀀스에 대해 다시 filter를 수행할 것이다. 
+
+하지만 시퀀스의 경우 모든 연산은 각 원소에 대해 순차적으로 적용된다. 즉 첫번째 원소가 처리되고, 다시 두 번째 원소가 처리되며, 이런 처리가 모든 원소에 대해 적용된다.
+
+아래의 그림처럼 시퀀스는 컬렉션을 만들지 않고 시퀀스로 map연산에서 이미 find 를 찾았으면 더이상 뒤의 연산을 하지 않아도 되기때문에 효율적이다.
+
+![](../../.gitbook/assets/image%20%2818%29.png)
+
+filter, map 또한 순서에 따라 연산 횟수가 다르다
+
+![](../../.gitbook/assets/image%20%2819%29.png)
+
+## 4.자바 함수형 인터페이스 활용
+
+코틀린은 자바와 호환이 가능함.
+
+```kotlin
+button.setOnClickListener(new OnClickListener(){
+    @Override
+    public void onClick(View v){
+      //...
+    }
+});
+```
+
+위와 같이 Button에 Click 발생시 그 이벤트를 캐치할 수 있는 ClickListener를 등록 할 수 있다. 그리고 이때 위와 같이 자바는 무명클래스의 인스턴스를 만들어야 함.
+
+코틀린에서는 위의 무명클래 인스턴스 대신 람다를 넘겨줄 수 있다.
+
+```kotlin
+button.setOnClickListener{view -> ...}
+```
+
+{% hint style="info" %}
+이런 코드가 작동하는 이유는 OnClickListner에 추상 메소드가 단 하나만 있기 때문. 그런 인터페이스를 함수형 인터페이스 또는 SAM 인터페이스라고 한다. \(SAM : Single abstract method\) 자바는 위와 같이 함수형 인터페이스를 활용하는 메소드가 많기 때문에 코틀린에서 함수형 인터페이스를 인자로 취하는 자바 메소드를 호출할 때 람다를 넘길 수 있게 해준다.
+{% endhint %}
+
+### 4.1 자바 메소드에 람다를 인자로 전달
+
+다음 자바 메소드를 코틀린에서 람다를 전달할 수 있다.
+
+```kotlin
+void postphoneCoputation(int delay, Runable computation);
+```
+
+위에 메소드는 int완 Runable 2개의 인자를 가지는데. 여기서 Runable 부분을 람다를 사용하여 전달을 하면 `컴파일러는 자동으로 람다를 Runable로 변환해준다.`
+
+```kotlin
+postphoneComputation(1000) { println(42) }
+```
+
+위의 람다 코드와 다르게 Runable을 명시적으로 만들 수 있다.
+
+```kotlin
+postphoneComputation(1000, object:Runable{
+    override fun run(){
+        println(42)
+    }
+})
+```
+
+{% hint style="info" %}
+객체를 명시적으로 선언하는 경우 메소드를 호출할 때마다 새로운 객체가 생성된다. - **매번 인스턴스를 생성함**
+
+람다는 정의가 들어있는 함수의 변수에 접근하지 않는 람다에 대응하는 무명객체를 메소드를 호출할 때마다 반복 사용한다. - **매번 인스턴스를 재사용함**
+{% endhint %}
+
+{% hint style="danger" %}
+람다를 사용할 경우에도 반드시 반복사용하는 것은 아니다. 
+
+람다가 주변 영역의 변수를 사용하게 된다면 컴파일러는 주변 영역 변수를 사용하는 새로운 인스턴스를 생성하게 된다.
+
+```kotlin
+fun handleComputation(id : string){
+    postphoneComputation(1000) { println(id) }
+}
+```
+{% endhint %}
+
+{% hint style="danger" %}
+### 람다와 리스너 등록/해제하기
+
+람다에는 무명 객와 달리 인스턴스 자신을 가리키는 this 가 없다.
+
+따라서 람다를 변환한 무명 클래스의 인스턴스를 참조할 방법이 없다. 컴파일러 입장에서 보면 람다는 코드블록일 뿐이고, 객체가 아니므로 객체처럼 람다를 참조할 수는 없다.
+
+람다 안에서 this는 그 람다를 둘러싼 클래스의 인스턴스를 리킨다.
+{% endhint %}
+
+
 
