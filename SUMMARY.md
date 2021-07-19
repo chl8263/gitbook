@@ -13,6 +13,7 @@
   * [volatile, atomic](write/java/volatile-atomic.md)
   * [Synchronized 정리](write/java/synchronized.md)
 * [Linux](write/linux/README.md)
+  * [Cent os / nginx logroate 설정](write/linux/cent-os-nginx-logroate.md)
   * [failed: No route to host 문제](write/linux/failed-no-route-to-host.md)
   * [Cron : 리눅스 작업 스케줄러](write/linux/cron.md)
   * [/etc/rc.d/init.d/\* 파일들의 이해](write/linux/etc-rc.d-init.d.md)
