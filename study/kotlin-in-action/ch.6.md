@@ -199,3 +199,61 @@ var l: Long = i.toLong()
 
 코틀린은 모든 원시타입에 대한 변환 함수를 호출한다. `toChar()`, `toByte()` 등
 
+## Any, Any?: 최상위 타입
+
+자바에서 Object 가 최상위 타입이듯 코틀린에서는 `Any` 가 최상위 타입이다.
+
+`val s: Any = 42` 이 코드는 Any 타입의 변수 이므로 자동으로 박싱이 된다.
+
+## Unit 타입: 코틀린의 void
+
+내용을 전혀 반환하지 않는 함수의 반환 타입으로 Unit을 쓸 수 있다.
+
+```kotlin
+fun f(): Unit {
+    ...
+}
+
+fun f() {    // unit 을 생략해도 된다
+    ...
+}
+```
+
+자바의 void 와 달리 코틀린의 unit 은 Unit 타입을 인자로 쓸 수 있다. Unit 타입의 함수는 Unit 값을 묵시적으로 반환한다.
+
+이 특성은 제네릭 파라메터를 반환하는 함수를 오버라이드 하면서 반환 타입으로 Unit을 쓸 때 유용하다.
+
+```kotlin
+interface Processor<T> {
+    fun process() : T
+}
+
+class NoResultProcessor: Processor<Unit> {
+    override fun process() {
+        ...
+    }
+}
+```
+
+제네릭은 해당 타입을 반환하도록 강제한다. 따라서 Unit 타입이라면 딱히 반환할 필요가 없다.
+
+{% hint style="info" %}
+## Unit 의 유래
+
+함수형 프로그래밍에서 전통적으로 Unit은 '단 하나의 인스턴스만 갖는 타입' 을 의미해 왔고 바로 그 유일한 인스턴스의 유무가 자바 void와 코틀린 Unit을 구분하는 가장 큰 차이다.
+{% endhint %}
+
+## 널 가능 컬렉션
+
+![](../../.gitbook/assets/image%20%2821%29.png)
+
+## 읽기 전용과 변경 가능한 컬렉션
+
+코틀린 컬렉션과 자바 컬렉션의 중요 특정 차이는 코틀린 컬렉션 안의 데이터에 접근하는 인터펯이스와 컬렉션 안의 데이터를 변경하는 인터페이스를 분리했다는 점이다.
+
+이런 구분은 `kotlin.collections.Collection` 부터 시작한다. 컬렉션에서 데이터를 읽는 여러 다른 연산을 수행할 수 있다.
+
+컬렉션의 데이터를 수정하려면 `kotlin.collections.MutableCollection` 일반 인터페이스인 `kotlin.collections.Collection`을 확장한다.
+
+![](../../.gitbook/assets/image%20%2820%29.png)
+
