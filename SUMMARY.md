@@ -29,6 +29,7 @@
   * [ch4. 클래스, 객체, 인터페이스](study/kotlin-in-action/ch4..md)
   * [ch.5 람다로 프로그래밍](study/kotlin-in-action/ch.5.md)
   * [ch.6 코틀린 타입 시스템](study/kotlin-in-action/ch.6.md)
+  * [ch7. 연산자 오버로딩과 기타 관계](study/kotlin-in-action/ch7..md)
 * [오브젝트](study/undefined/README.md)
   * [ch01. 객체, 설계](study/undefined/ch01..md)
   * [ch02. 객체지향 프로그래밍](study/undefined/ch02..md)
