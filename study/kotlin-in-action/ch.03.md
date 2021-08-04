@@ -1,6 +1,4 @@
-# ch.03 함수 정의와 호출
-
-
+# ch3. 함수 정의와 호출
 
 ```kotlin
 fun <T> joinToString(
