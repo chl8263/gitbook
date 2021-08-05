@@ -31,7 +31,7 @@
   * [ch5. 람다로 프로그래밍](study/kotlin-in-action/ch.5.md)
   * [ch6. 코틀린 타입 시스템](study/kotlin-in-action/ch.6.md)
   * [ch7. 연산자 오버로딩과 기타 관계](study/kotlin-in-action/ch7..md)
-  * [ch.8 고차 함수: 파라미터와 반환 겂으로 람다 사용](study/kotlin-in-action/untitled.md)
+  * [ch.8 고차 함수: 파라미터와 반환 값으로 람다 사용](study/kotlin-in-action/untitled.md)
 * [오브젝트](study/undefined/README.md)
   * [ch1. 객체, 설계](study/undefined/ch01..md)
   * [ch2. 객체지향 프로그래밍](study/undefined/ch02..md)
