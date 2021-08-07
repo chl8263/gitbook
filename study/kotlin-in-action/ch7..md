@@ -233,7 +233,7 @@ print(x)
 
 구조분해 선언은 변수선언과 비슷해 보이지만 각 변수를 초기화 하기위해 `ComponentN`이라는 함수를 호출한다.
 
-```text
+```kotlin
 val (a, b) = p
 
 val a = p.component1()
@@ -244,7 +244,7 @@ data class 의 주 생성자에 들어있는 프로퍼티에 대해서는 컴파
 
 아래는 데이터 타입이 아닌 클래스에서 이런 함수를 어떻게 구현하는지 보여준다.
 
-```text
+```kotlin
 class NormalPoint(val x: Int, val y: Int) {
     operator fun component1() = x
     operator fun component2() = y
@@ -306,7 +306,7 @@ class Foo {
 
 예를들어 Person 클래스가 이메일을 데이터베이스에서 가져온다고 할 때 시간이 오래 걸린다. 그래서 이메일값을 최초로 사용할때 단 한번만 이메일을 데이터베이스에서 가져오고 싶다.
 
-```text
+```kotlin
 class Person {
     var _emails: List<String>? = null
 
@@ -325,7 +325,7 @@ class Person {
 
 이 방식은 다소 성가신 방법이다. 이때 지연 초기화를 사용하면 최초 사용시에 데이터를 가져오는것을 보장해준다.
 
-```text
+```kotlin
 class Person {
     var emails: List<String> by lazy { getEmails() }
 }
