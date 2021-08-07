@@ -351,7 +351,45 @@ public interface MutableList<E> : List<E>, MutableCollection<E> {
     override fun add(element: E): Boolean   // 인의 위치에 쓰인다.
 
     ...
+}
 ```
 
->
+### 3.4 반공변성: 뒤집힌 하위 타입 관계
+
+`반공변성`은 공변성을 거울에 비친 상이라 할 수 있다. 반공변 클래스의 하위타입 관계는 공변 클래스의 경우와 반대다.
+
+```kotlin
+interface Comparator<in T> {
+    fun compare(e1: T) {
+        ...
+    }
+}
+```
+
+이 인터페이스의 메소드는 T 타입의 값을 소비하기만 한다. 이는 T의 위치가 `인`에서만 씌인다는 뜻이다.
+
+### 3.6 스타 프로젝션: 타입 인자대신 \* 사용
+
+타입 검사와 캐스트에 대해 제레닉 타입 인자 정보가 없음을 표현하기 위해 `스타 프로젝션`을 사용한다.
+
+예를들어 우너소 타입이 알려지지 않은 리스트는 `List<*>`라는 구문으로 표현할 수 있다.
+
+#### 스타 프로젝션의 의미
+
+* MutableList&lt;_&gt;은 MutableList 와 같지 않다. MutableList 는 모든 타입의 원소를 담을 수 있다는 사실을 알 수 있는 리스트이다. 반면 MutableList&lt;_&gt; 는 어떤 구체적인 타입을 담는 리스트지만 그 원소의 타입을 정확히 모른다는 의미다. MutableList&lt;_&gt; 에 어떤 타입이 올지 모른다는 이유로 이 안에 아무 원소나 막 담을 수 있다는 뜻은 아니다. 리시트를 넘겨준 쪽이 바라는 조건을 깰 수도 있기 때문이다. MutableList&lt;_&gt; 타입의 리스트에서 원소를 얻을 수는 있다. 왜냐면 MutableList 의 하위 타입이라는 사실은 분명하기 때문이다.
+* MutableList&lt;\*&gt;은 MutableList 처럼 동작한다.
+
+```kotlin
+val list = mutableListOf("asc", "asc", "123")
+val chars = mutableListOf('a', 'b', 'x')
+
+val unKnownElements: MutableList<*> = if (Random().nextBoolean()) list else chars
+
+unKnownElements.add(13)        // 컴파일러는 이 메소드 호출을 금지시킨다.
+unKnownElements[0]             // 읽기는 가능하다.
+```
+
+위 코드처럼 MutableList&lt;\*&gt;은 안전하게 Any? 타입의 원소를 깨내올 수 있지만 `타입을 모르는 리스트에 원소를 마음대로 넣을 수는 없다`.
+
+타입 파라미터의 타입에 관심이 없는 경우와 같이 타입 인자 정보가 중요하지 않을 때도 스타 프로젝션 구문을 사용할 수 있다.
 
