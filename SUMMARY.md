@@ -47,6 +47,7 @@
   * [ch11. 합성과 유연한 설계](study/undefined/ch11..md)
   * [ch12. 다형성](study/undefined/ch12..md)
   * [ch13.서브클래싱과 서브 타이핑](study/undefined/ch13..md)
+  * [ch15. 디자인 패턴과 프레임워크](study/undefined/ch15..md)
 
 ## ETC <a id="etc-1"></a>
 
