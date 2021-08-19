@@ -6,5 +6,5 @@ Deep 빡이다.
 
 \[Control Panel -&gt; Hardware and Sound -&gt; Devices and Printers\]. Then \[ Amazon Echo \(or any other device with issues\) -&gt; Properties -&gt; Services\] 
 
-위에 들어가서 'remote control' 부분을 해제하
+위에 들어가서 'remote control' 부분을 해제하라.
 
