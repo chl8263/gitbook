@@ -23,6 +23,8 @@
   * [crontab-e 사용하기](write/linux/crontab-e.md)
   * [/etc/rc.d/init.d/\* 파일들의 이해](write/linux/etc-rc.d-init.d.md)
   * [tar, rpm, 아카이브, 압축](write/linux/tar-rpm.md)
+* [Nginx](write/nginx/README.md)
+  * [Nginx 소스 설치 하기](write/nginx/nginx.md)
 
 ## STUDY
 
