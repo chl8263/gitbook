@@ -1,4 +1,4 @@
-# HOW TO FIX CENTOS 6 ERROR: YUMREPO ERROR: ALL MIRROR URLS ARE NOT USING FTP, HTTP\[S\] OR FILE
+# CENTOS 6 Yum repo 작동이 안될 때
 
 > centos 6 에서 yum update 등 yum 을 사용할 때 아래와 같은 에러가 난다. 이유는 centos6 지원이 끝나서 보안적인 문제로 인한 것.
 >
@@ -23,7 +23,7 @@
 
 ```
 
-내용을 아래로 교체하
+내용을 아래로 교
 
 ```text
 [base]
@@ -53,7 +53,7 @@ gpgcheck=1
 gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-6
 ```
 
-그 다음 아래 명령어로 클랜해주고 실행하면 잘 동작함.
+그 다음 아래 명령어로 클랜해주고 실행
 
 ```text
 # yum clean all
