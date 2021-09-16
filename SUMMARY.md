@@ -16,6 +16,7 @@
 * [Kotlin](write/kotlin/README.md)
   * [코루틴과 Async/Await](write/kotlin/async-await.md)
 * [Linux](write/linux/README.md)
+  * [Ubuntu, root 로 GUI 로그인하기](write/linux/ubuntu-root-gui.md)
   * [CENTOS 6 Yum repo 작동이 안될 때](write/linux/how-to-fix-centos-6-error-yumrepo-error-all-mirror-urls-are-not-using-ftp-http-s-or-file.md)
   * [Cent os / nginx logroate 설정](write/linux/cent-os-nginx-logroate.md)
   * [failed: No route to host 문제](write/linux/failed-no-route-to-host.md)
