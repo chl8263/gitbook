@@ -25,6 +25,8 @@ CMD ["java", "-jar", "application.jar"]
 
 아래 방법으로 build.gradle 에 추가하여 Jar 파일을 만들고 밑에 방식을 통해서 jar 파일을 풀게 되면 4가지 폴더\(layer\)가 만들어 진다.
 
+### 1. build gradle 에 아래 코드 추
+
 ```kotlin
 tasks.getByName<BootJar>("bootJar") {
 	layered {
@@ -62,5 +64,33 @@ tasks.getByName<BootJar>("bootJar") {
 
 그래서 실제로 docker image를 만들어 가는 과정에서 이 순서에 역순으로 작성을 해주어야 한다. \(자주 바뀌지 않기 때문에 캐쉬가 깨질 가능성이 적어진다.\)
 
+### 2. Dockerfile 에 아래 코드 추
 
+```bash
+FROM openjdk:11-jdk as builder
+ENV APP_HOME=/usr/app
+WORKDIR $APP_HOME
+COPY build/libs/demo-0.0.1-SNAPSHOT.jar application.jar
+RUN java -Djarmode=layertools -jar application.jar extract
+
+FROM openjdk:11-jdk
+ENV APP_HOME=/usr/app
+WORKDIR $APP_HOME
+ENV spring.profiles.active local
+COPY --from=builder /usr/app/dependencies/ ./
+COPY --from=builder /usr/app/spring-boot-loader/ ./
+COPY --from=builder /usr/app/snapshot-dependencies/ ./
+COPY --from=builder /usr/app/application/ ./
+EXPOSE 8080
+
+ENTRYPOINT ["java", "org.springframework.boot.loader.JarLauncher"]
+```
+
+### 3. Docker build and run
+
+```text
+# docker build -t YOUR_IMAGE_NAME
+
+# docker run -p 9445:8080 chl8263/demo-springboot
+```
 
