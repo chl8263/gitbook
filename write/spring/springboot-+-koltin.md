@@ -6,7 +6,7 @@
 
 }
 
-```text
+```kotlin
 dependencies {
     implementation("org.springframework.boot:spring-boot-starter")
     implementation("org.jetbrains.kotlin:kotlin-reflect")
@@ -17,3 +17,22 @@ dependencies {
 }
 ```
 
+## 2. Class에 Logging 코드 추가 <a href="1.-kotlin-logging-dependency" id="1.-kotlin-logging-dependency"></a>
+
+```kotlin
+private val logger = KotlinLogging.logger {}
+
+@SpringBootApplication
+class MyappApplication
+
+fun main(args: Array<String>) {
+    runApplication<MyappApplication>(*args)
+
+    // Logging
+    logger.trace { "I'm trace! hello, world." }
+    logger.debug { "I'm debug! Hello world." }
+    logger.info { "I'm info! Hello world." }
+    logger.warn { "I'm warn! Hello world." }
+    logger.error { "I'm error! Hello world." }
+}
+```

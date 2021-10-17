@@ -18,6 +18,7 @@
 * [Spring](write/spring/README.md)
   * [Springboot + Koltin 로그설정](write/spring/springboot-+-koltin.md)
   * [Springboot 프로젝트 bootjar layered 나누기](write/spring/springboot-bootjar-layered.md)
+* [Test](write/test.md)
 * [Kotlin](write/kotlin/README.md)
   * [코루틴과 Async/Await](write/kotlin/async-await.md)
 * [Linux](write/linux/README.md)
@@ -33,8 +34,8 @@
 * [Nginx](write/nginx/README.md)
   * [Nginx 소스 설치 하기](write/nginx/nginx.md)
 * [보안](write/undefined/README.md)
-  * [CSRF\(Cross Site Request Forgery\)란 무엇인가?](write/undefined/csrf-cross-site-request-forgery.md)
-  * [XSS \(Cross-Site Scripting\) 이란?](write/undefined/xss-cross-site-scripting.md)
+  * [CSRF(Cross Site Request Forgery)란 무엇인가?](write/undefined/csrf-cross-site-request-forgery.md)
+  * [XSS (Cross-Site Scripting) 이란?](write/undefined/xss-cross-site-scripting.md)
 
 ## STUDY
 
@@ -66,7 +67,6 @@
   * [ch13.서브클래싱과 서브 타이핑](study/undefined/ch13..md)
   * [ch15. 디자인 패턴과 프레임워크](study/undefined/ch15..md)
 
-## ETC <a id="etc-1"></a>
+## ETC <a href="etc-1" id="etc-1"></a>
 
 * [window 에서 블루투스 원격제어끄기](etc-1/window.md)
-
