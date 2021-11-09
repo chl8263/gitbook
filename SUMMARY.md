@@ -22,6 +22,7 @@
 * [Kotlin](write/kotlin/README.md)
   * [코루틴과 Async/Await](write/kotlin/async-await.md)
 * [Linux](write/linux/README.md)
+  * [python symbolic link 걸기](write/linux/python-symbolic-link.md)
   * [Ubuntu, root 로 GUI 로그인하기](write/linux/ubuntu-root-gui.md)
   * [CentOS 7.x Port 방화벽 관리](write/linux/centos-7.x-port.md)
   * [CENTOS 6 Yum repo 작동이 안될 때](write/linux/how-to-fix-centos-6-error-yumrepo-error-all-mirror-urls-are-not-using-ftp-http-s-or-file.md)
