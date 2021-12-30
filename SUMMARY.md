@@ -18,7 +18,8 @@
 * [Spring](write/spring/README.md)
   * [Springboot + Koltin 로그설정](write/spring/springboot-+-koltin.md)
   * [Springboot 프로젝트 bootjar layered 나누기](write/spring/springboot-bootjar-layered.md)
-* [Test](write/test.md)
+* [Jenkins](write/jenkins/README.md)
+  * [Jenkins war파일 및 Plugin 다운로드 경로](write/jenkins/jenkins-war-plugin.md)
 * [Kotlin](write/kotlin/README.md)
   * [코루틴과 Async/Await](write/kotlin/async-await.md)
 * [Linux](write/linux/README.md)
@@ -68,6 +69,6 @@
   * [ch13.서브클래싱과 서브 타이핑](study/undefined/ch13..md)
   * [ch15. 디자인 패턴과 프레임워크](study/undefined/ch15..md)
 
-## ETC <a href="etc-1" id="etc-1"></a>
+## ETC <a href="#etc-1" id="etc-1"></a>
 
 * [window 에서 블루투스 원격제어끄기](etc-1/window.md)

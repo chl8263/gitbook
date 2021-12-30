@@ -24,11 +24,11 @@ $ ls -l /usr/bin/python*
 
 &#x20;
 
-**\* 이미 파이썬 버전이 설치되어있다면 3번 생략 **
+**\* 이미 파이썬 버전이 설치되어있다면 3번 생략**&#x20;
 
 
 
-### **3. Python 설치 **
+### **3. Python 설치**&#x20;
 
 ```
 $ yum install python2, python3, ..
@@ -36,7 +36,7 @@ $ yum install python2, python3, ..
 
 
 
-### **4. 심볼릭 링크 걸기 **
+### **4. 심볼릭 링크 걸기**&#x20;
 
 (기존 python 실행 파일 위치인) /usr/bin/python은 지워준다.&#x20;
 

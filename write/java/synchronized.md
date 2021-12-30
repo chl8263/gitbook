@@ -2,7 +2,7 @@
 
 ## Synchronized 란?
 
-Multi-thread로 인해 자원을 동기화 해야하는 경우가 발생한다. Multi-thread 환경에서 Thread간 동기화 문제는 반드시 해결해야하는 아주 중요한 문제. 
+Multi-thread로 인해 자원을 동기화 해야하는 경우가 발생한다. Multi-thread 환경에서 Thread간 동기화 문제는 반드시 해결해야하는 아주 중요한 문제.&#x20;
 
 특정 자원의 Thread-safe를 위해 Java 에서 **Synchronized** 키워드를 사용한다. 이 키워드는 여러개의 Thread가 하나의 자원을 사용하고자 할 때 현재 데이터를 사용하고 있는 해당 쓰레드를 제외한 나머지 Thread는 그 자원에 접근하지 못하도록 막는것.
 
@@ -69,7 +69,7 @@ class Test{
 }
 ```
 
-위의 코드에서 서로다른 Thread 두개가 한개의 Test 인스턴스 **addCount\(\)** 메서드를 호출한다.  **synchronized** 키워드가 없으면 ****Test 객체 안의 counter 변수 출력이 순서대로 증가하지않고 바뀌는 경우가 생긴다.
+위의 코드에서 서로다른 Thread 두개가 한개의 Test 인스턴스 **addCount()** 메서드를 호출한다.  **synchronized** 키워드가 없으면 **** Test 객체 안의 counter 변수 출력이 순서대로 증가하지않고 바뀌는 경우가 생긴다.
 
 * synchronized 한경
 
@@ -93,7 +93,7 @@ Thread[Thread-1,5,main] - 3
 Thread[Thread-0,5,main] - 3
 ```
 
-**하지만 함수에 synchronized 키워드를 사용할 경우 함수만 Thread 에 block 되는것이 아닌 그 함수가 포함된 객체 전부 lock 걸리게 된다.** 
+**하지만 함수에 synchronized 키워드를 사용할 경우 함수만 Thread 에 block 되는것이 아닌 그 함수가 포함된 객체 전부 lock 걸리게 된다.**&#x20;
 
 ```java
 class Test{
@@ -111,7 +111,7 @@ class Test{
 }
 ```
 
-만약 addCount\(\) 함수 처럼 공유자원을 사용하는 함수가 아닌 Method2함수를 사용해야하는 일이 발생한다면? 이미 addCount\(\)의 synchronized키워드 때문에 객체 전체가 lock이 걸려 원하는 성능을 기대할 수 없다.
+만약 addCount() 함수 처럼 공유자원을 사용하는 함수가 아닌 Method2함수를 사용해야하는 일이 발생한다면? 이미 addCount()의 synchronized키워드 때문에 객체 전체가 lock이 걸려 원하는 성능을 기대할 수 없다.
 
 ### 2. **synchronized block 사용**
 
@@ -131,7 +131,7 @@ class Test{
 }
 ```
 
-synchronized 블록은 인자로 Object 를 받는다. \(primitive 타입 불가\)
+synchronized 블록은 인자로 Object 를 받는다. (primitive 타입 불가)
 
 위에말한 함수에 synchronized를 개선하자면 다음과 같다.
 
@@ -173,7 +173,7 @@ class Test{
 }
 ```
 
-위 코드와 같이 addCount\(\) 함수와 addCount2\(\) 함수가 서로 다른 자원에 대해 동기가 필요하지만 위처럼 synchronized block에 this 인자값을 주면 쓸데없는 짓이라는 것이다.
+위 코드와 같이 addCount() 함수와 addCount2() 함수가 서로 다른 자원에 대해 동기가 필요하지만 위처럼 synchronized block에 this 인자값을 주면 쓸데없는 짓이라는 것이다.
 
 ```java
 class Test{
@@ -231,4 +231,3 @@ class Test{
 ```
 
 위와같이 static과 non-static 함수가 같은 count 변수를 공유한다면 동기화가 제대로 이루어지지 않아서 간헐적으로 동기화 이슈가 발생한다. 찾기도 힘들고 절대 이렇게 쓰지말것.
-
