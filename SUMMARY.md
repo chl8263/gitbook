@@ -23,6 +23,7 @@
 * [Kotlin](write/kotlin/README.md)
   * [코루틴과 Async/Await](write/kotlin/async-await.md)
 * [Linux](write/linux/README.md)
+  * [RedHat8 에 Apache openssl 최신버전 적용](write/linux/redhat8-apache-openssl.md)
   * [python symbolic link 걸기](write/linux/python-symbolic-link.md)
   * [Ubuntu, root 로 GUI 로그인하기](write/linux/ubuntu-root-gui.md)
   * [CentOS 7.x Port 방화벽 관리](write/linux/centos-7.x-port.md)
