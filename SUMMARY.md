@@ -23,6 +23,7 @@
 * [Kotlin](write/kotlin/README.md)
   * [코루틴과 Async/Await](write/kotlin/async-await.md)
 * [Linux](write/linux/README.md)
+  * [ICMP timestamp responses disable  하기](write/linux/icmp-timestamp-responses-disable.md)
   * [Nmap firewall Scan 피하기](write/linux/nmap-firewall-scan.md)
   * [RedHat8 에 Apache openssl 최신버전 적용](write/linux/redhat8-apache-openssl.md)
   * [python symbolic link 걸기](write/linux/python-symbolic-link.md)
