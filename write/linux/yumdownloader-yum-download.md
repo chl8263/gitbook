@@ -17,7 +17,7 @@ $ sudo yum install yum-utils
 _yumdownloader_ 명령어에 --_downloadonly_ 옵션을 주고 다운받을 패키지를 지정하면 현재 폴더에 다운로드됩니다.
 
 ```bash
-$ yumdownloader --downloadonly gcㅊㅌc
+$ yumdownloader --downloadonly gcc
 ```
 
 \
@@ -39,17 +39,14 @@ package: gcc.x86_64 4.4.7-23.el6
    provider: libgcc.x86_64 4.4.7-23.el6
 ```
 
-CopyBASH
-
-\
-
-
 _yumdownloader_ 명령어에 --_resolve_ 옵션을 추가하면 의존성 있는 패키지도 같이 다운로드합니다.
 
 ```
 yumdownloader --downloadonly --resolve gcc
 ```
 
-CopyCODE
+ㄴㅇREF
+
+[https://www.lesstif.com/system-admin/yumdownloader-yum-download-100205937.html](https://www.lesstif.com/system-admin/yumdownloader-yum-download-100205937.html)
 
 \
