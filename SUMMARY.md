@@ -57,6 +57,7 @@
     * [#5. 리소스를 엮을 때는 의존성 주입을 선호하라](study/effective-java/2/page-5.md)
     * [#6. 불필요한 객체를 만들지 말자](study/effective-java/2/6..md)
     * [#.7 다 쓴 객체 참조를 해제하라](study/effective-java/2/.7.md)
+    * [#8. finalizer와 cleaner 사용을 피하라](study/effective-java/2/8.-finalizer-cleaner.md)
 * [Kotlin In Action](study/kotlin-in-action/README.md)
   * [ch1. 코틀린이란 무엇이며. 왜 필요한가?](study/kotlin-in-action/ch.01-..md)
   * [ch2. 코틀린 기초](study/kotlin-in-action/ch.02.md)
