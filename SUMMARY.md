@@ -48,7 +48,10 @@
 
 ## STUDY
 
-* [Effective Java](study/effective-java.md)
+* [Effective Java](study/effective-java/README.md)
+  * [2 객체 생성과 파괴](study/effective-java/2/README.md)
+    * [#1. 생성자 대신 정적 팩터리 메스드를 고려하라](study/effective-java/2/1..md)
+    * [Page 2](study/effective-java/2/page-2.md)
 * [Kotlin In Action](study/kotlin-in-action/README.md)
   * [ch1. 코틀린이란 무엇이며. 왜 필요한가?](study/kotlin-in-action/ch.01-..md)
   * [ch2. 코틀린 기초](study/kotlin-in-action/ch.02.md)
