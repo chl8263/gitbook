@@ -10,7 +10,7 @@
 
 첫 번째 방법은 final 필드로 제공한다.
 
-```
+```java
 public class Elvis {
 
     public static final Elvis INSTANCE = new Elvis();

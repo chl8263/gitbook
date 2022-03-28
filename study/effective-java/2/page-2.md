@@ -53,7 +53,7 @@ public class NutritionFacts {
 
 그래서 매개변수가 많을 때는 Builder 패턴을 사용하는 것이 바람직 하다. 매번 객체를 반환해야하는 비용이 있지만, 맴버변수가 많을 때는 빌더패턴이 좋다.
 
-```
+```java
 public class NutritionFacts {
     private final int servingSize;
     private final int servings;

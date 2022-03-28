@@ -6,7 +6,7 @@ static 메서드와 static 필드를 모아둔 클래스를 만든 경우 해당
 
 명시적으로 private 생성자를 추가해야 한다.
 
-```
+```java
 // Noninstantiable utility class
 public class UtilityClass {
     // Suppress default constructor for noninstantiability
