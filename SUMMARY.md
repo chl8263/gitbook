@@ -48,6 +48,7 @@
 
 ## STUDY
 
+* [Effective Java](study/effective-java.md)
 * [Kotlin In Action](study/kotlin-in-action/README.md)
   * [ch1. 코틀린이란 무엇이며. 왜 필요한가?](study/kotlin-in-action/ch.01-..md)
   * [ch2. 코틀린 기초](study/kotlin-in-action/ch.02.md)
