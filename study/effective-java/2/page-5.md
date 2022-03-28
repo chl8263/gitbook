@@ -1,4 +1,4 @@
-# Page 5
+# #5. 리소스를 엮을 때는 의존성 주입을 선호하라
 
 대부분의 클래스는 여러 리소스에 의존한다. 이 책에서는 `SpellChecker`와 `Dictionary`를 예로 들고 있다. 즉, `SpellCheck`가 `Ditionary`를 사용하고, 이를 의존하는 리소스 또는 의존성이라고 부른다. 이때 `SpellChecker`를 다음과 같이 구현하는 경우가 있다.
 
