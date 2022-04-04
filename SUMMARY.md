@@ -51,6 +51,7 @@
 * [English](study/english/README.md)
   * [하사전 문법 정리](study/english/undefined/README.md)
     * [1. 명사, 동사](study/english/undefined/1..md)
+    * [2. 문장의 뼈대 1, 2](study/english/undefined/2.-1-2.md)
 * [Effective Java](study/effective-java/README.md)
   * [2 객체 생성과 파괴](study/effective-java/2/README.md)
     * [#1. 생성자 대신 정적 팩터리 메스드를 고려하라](study/effective-java/2/1..md)
