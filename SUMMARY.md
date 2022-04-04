@@ -55,6 +55,7 @@
     * [3. 뼈대1 응용(□=△)](study/english/undefined/3.-1.md)
   * [라이브 아카데미 정리](study/english/undefined-1/README.md)
     * [당황 | 당황하다 | 당황스럽다](study/english/undefined-1/or-or.md)
+    * [영어회화 | 표현 | 생활 속 필수 표현 - 집편](study/english/undefined-1/or-or-1.md)
 * [Effective Java](study/effective-java/README.md)
   * [2 객체 생성과 파괴](study/effective-java/2/README.md)
     * [#1. 생성자 대신 정적 팩터리 메스드를 고려하라](study/effective-java/2/1..md)
