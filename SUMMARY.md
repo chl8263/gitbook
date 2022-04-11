@@ -61,6 +61,7 @@
     * [영어회화 | 표현 | 생활 속 필수 표현 - 집편](study/english/undefined-1/or-or-1.md)
     * [영어회화 | 시제 | 미래시제 | will 과 be going to의 차이](study/english/undefined-1/or-or-or-will-be-going-to.md)
     * [영어회화 | should와 have to의 차이 그리고 be supposed to](study/english/undefined-1/or-should-have-to-be-supposed-to.md)
+    * [영어회화 | 표현 / 사과 | 미안하다 - 누구한테 미안하다](study/english/undefined-1/or-or-2.md)
 * [Effective Java](study/effective-java/README.md)
   * [2 객체 생성과 파괴](study/effective-java/2/README.md)
     * [#1. 생성자 대신 정적 팩터리 메스드를 고려하라](study/effective-java/2/1..md)
