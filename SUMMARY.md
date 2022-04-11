@@ -55,6 +55,7 @@
     * [3. 뼈대1 응용(□=△)](study/english/undefined/3.-1.md)
     * [4. □(△)+□](study/english/undefined/4.-+.md)
     * [5. 장소/시간](study/english/undefined/5..md)
+    * [6. □+부속 (핵심명사가 앞으로)](study/english/undefined/6.-+.md)
   * [라이브 아카데미 정리](study/english/undefined-1/README.md)
     * [당황 | 당황하다 | 당황스럽다](study/english/undefined-1/or-or.md)
     * [영어회화 | 표현 | 생활 속 필수 표현 - 집편](study/english/undefined-1/or-or-1.md)
