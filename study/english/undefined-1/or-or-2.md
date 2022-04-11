@@ -13,3 +13,7 @@ description: https://www.youtube.com/watch?v=G6S6RnCbW2g
 * I felt bad for hittig my friend's mother with my car.
 * I felt bad for not going to to his wedding.
 * I felt so bad for yelling at my father last night.
+
+### I'm sorry : \~ 에 대해 유감이다.
+
+과거에 어떤 일에 대해 sorry 를 사용하는 것은 의미가 틀리다.
