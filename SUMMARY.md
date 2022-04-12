@@ -67,6 +67,8 @@
     * [사과 | 미안하다 - 누구한테 미안하다](study/english/undefined-1/or.md)
     * [명절을 맞이하여 기초적인 표현 몇 가지 배워보자](study/english/undefined-1/undefined-1.md)
     * ['찾다'의 3가지 모습 - find | look for | search](study/english/undefined-1/3-find-or-look-for-or-search.md)
+    * ["알다" 의 9가지 유형](study/english/undefined-1/9.md)
+    * [would와 could 올바르게 이해하고 자연스럽게 사용하는 법](study/english/undefined-1/would-could.md)
 * [Effective Java](study/effective-java/README.md)
   * [2 객체 생성과 파괴](study/effective-java/2/README.md)
     * [#1. 생성자 대신 정적 팩터리 메스드를 고려하라](study/effective-java/2/1..md)
