@@ -60,6 +60,7 @@
     * [8. 현재 시제](study/english/undefined/8..md)
     * [9. 빈도](study/english/undefined/9..md)
     * [10. 등위접속사 복문](study/english/undefined/10..md)
+    * [11. 부정문](study/english/undefined/11..md)
   * [라이브 아카데미 정리](study/english/undefined-1/README.md)
     * [당황 | 당황하다 | 당황스럽다](study/english/undefined-1/or-or.md)
     * [생활 속 필수 표현 - 집편](study/english/undefined-1/undefined.md)
