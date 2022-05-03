@@ -86,6 +86,7 @@
   * [3 모든 객체의 공통 메서드](study/effective-java/3/README.md)
     * [#10. equals는 일반 규약을 지켜 재정의하라](study/effective-java/3/10.-equals.md)
     * [#11. equals를 재정의하려거든 hashCode도 재정의하라](study/effective-java/3/11.-equals-hashcode.md)
+    * [#12. toString을 항상 재정의하라](study/effective-java/3/12.-tostring.md)
 * [Kotlin In Action](study/kotlin-in-action/README.md)
   * [ch1. 코틀린이란 무엇이며. 왜 필요한가?](study/kotlin-in-action/ch.01-..md)
   * [ch2. 코틀린 기초](study/kotlin-in-action/ch.02.md)
