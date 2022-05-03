@@ -88,6 +88,7 @@
     * [#11. equals를 재정의하려거든 hashCode도 재정의하라](study/effective-java/3/11.-equals-hashcode.md)
     * [#12. toString을 항상 재정의하라](study/effective-java/3/12.-tostring.md)
     * [# 13. clone 재정의는 주의해서 진행하라](study/effective-java/3/13.-clone.md)
+    * [#14. Comparable을 구현할지 고려하라](study/effective-java/3/14.-comparable.md)
 * [Kotlin In Action](study/kotlin-in-action/README.md)
   * [ch1. 코틀린이란 무엇이며. 왜 필요한가?](study/kotlin-in-action/ch.01-..md)
   * [ch2. 코틀린 기초](study/kotlin-in-action/ch.02.md)
