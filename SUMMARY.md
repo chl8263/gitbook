@@ -92,6 +92,7 @@
   * [4 클래스와 인터페이스](study/effective-java/4/README.md)
     * [#15. 클래스와 멤버의 접근권한을 최소화하라](study/effective-java/4/15..md)
     * [#16. public 클래스에서는 public 필드가 아닌 접근자 메서드를 사용하라](study/effective-java/4/16.-public-public.md)
+    * [#17. 변경 가능성을 최소하라](study/effective-java/4/17..md)
 * [Kotlin In Action](study/kotlin-in-action/README.md)
   * [ch1. 코틀린이란 무엇이며. 왜 필요한가?](study/kotlin-in-action/ch.01-..md)
   * [ch2. 코틀린 기초](study/kotlin-in-action/ch.02.md)
