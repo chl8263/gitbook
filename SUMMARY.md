@@ -97,6 +97,7 @@
     * [#19. 상속을 고려해 설계하고 문서화하라. 그러지 않았다면 상속을 금지하라](study/effective-java/4/19.-..md)
     * [#20. 추상 클래스보다는 인터페이스를 우선하라](study/effective-java/4/20..md)
     * [#21. 인터페이스는 구현하는 쪽을 생각해 설계하라](study/effective-java/4/21..md)
+    * [#22. 인터페이스는 타입을 정의하는 용도로만 사용하라](study/effective-java/4/22..md)
 * [Kotlin In Action](study/kotlin-in-action/README.md)
   * [ch1. 코틀린이란 무엇이며. 왜 필요한가?](study/kotlin-in-action/ch.01-..md)
   * [ch2. 코틀린 기초](study/kotlin-in-action/ch.02.md)
