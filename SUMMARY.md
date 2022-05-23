@@ -101,6 +101,7 @@
     * [#23. 태그 달린 클래스 보다는 클래스 계층구조를 활용하라](study/effective-java/4/23..md)
     * [#24. 멤버 클래스는 되도록 static으로 만들라](study/effective-java/4/24.-static.md)
     * [#25. 톱레벨 클래스는 한 파일에 하나만 담으라](study/effective-java/4/25..md)
+    * [#26. 로 타입은 사용하지 말라](study/effective-java/4/26..md)
 * [Kotlin In Action](study/kotlin-in-action/README.md)
   * [ch1. 코틀린이란 무엇이며. 왜 필요한가?](study/kotlin-in-action/ch.01-..md)
   * [ch2. 코틀린 기초](study/kotlin-in-action/ch.02.md)
