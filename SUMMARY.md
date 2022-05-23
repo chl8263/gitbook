@@ -103,6 +103,7 @@
     * [#25. 톱레벨 클래스는 한 파일에 하나만 담으라](study/effective-java/4/25..md)
     * [#26. 로 타입은 사용하지 말라](study/effective-java/4/26..md)
     * [#27. 비검사 경고를 제거하라](study/effective-java/4/27..md)
+  * [5 제네릭](study/effective-java/5.md)
 * [Kotlin In Action](study/kotlin-in-action/README.md)
   * [ch1. 코틀린이란 무엇이며. 왜 필요한가?](study/kotlin-in-action/ch.01-..md)
   * [ch2. 코틀린 기초](study/kotlin-in-action/ch.02.md)
