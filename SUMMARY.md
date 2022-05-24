@@ -108,6 +108,7 @@
     * [#29. 이왕이면 제네릭 타입으로 만들라](study/effective-java/5/29..md)
     * [#30. 이왕이면 제네릭 메서드로 만들라](study/effective-java/5/30..md)
     * [#31. 한정적 와일드카드를 사용해 API 유연성을 높이라](study/effective-java/5/31.-api.md)
+    * [#32. 제네릭과 가변인수를 함께 쓸 때는 신중하라](study/effective-java/5/32..md)
 * [Kotlin In Action](study/kotlin-in-action/README.md)
   * [ch1. 코틀린이란 무엇이며. 왜 필요한가?](study/kotlin-in-action/ch.01-..md)
   * [ch2. 코틀린 기초](study/kotlin-in-action/ch.02.md)
