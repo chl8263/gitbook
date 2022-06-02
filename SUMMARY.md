@@ -62,6 +62,7 @@
     * [10. 등위접속사 복문](study/english/undefined/10..md)
     * [11. 부정문](study/english/undefined/11..md)
     * [12. 과거 시제](study/english/undefined/12..md)
+    * [13. yes/no 의문문 + 대답](study/english/undefined/13.-yes-no-+.md)
   * [라이브 아카데미 정리](study/english/undefined-1/README.md)
     * [당황 | 당황하다 | 당황스럽다](study/english/undefined-1/or-or.md)
     * [생활 속 필수 표현 - 집편](study/english/undefined-1/undefined.md)
