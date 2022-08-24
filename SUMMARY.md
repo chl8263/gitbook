@@ -20,6 +20,7 @@
   * [Untitled](write/docker/untitled.md)
 * [Spring](write/spring/README.md)
   * [Spring JPA](write/spring/spring-jpa/README.md)
+    * [Data source 분산 트랜잭션](write/spring/spring-jpa/data-source.md)
     * [DB 메모리 누수](write/spring/spring-jpa/db.md)
   * [Springboot + Koltin 로그설정](write/spring/springboot-+-koltin.md)
   * [Springboot 프로젝트 bootjar layered 나누기](write/spring/springboot-bootjar-layered.md)
