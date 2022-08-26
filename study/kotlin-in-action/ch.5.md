@@ -245,7 +245,7 @@ people.map(Person::name)
 
 filter, map 또한 순서에 따라 연산 횟수가 다르다
 
-![](<../../.gitbook/assets/image (19) (1).png>)
+![](<../../.gitbook/assets/image (19).png>)
 
 ## 4.자바 함수형 인터페이스 활용
 

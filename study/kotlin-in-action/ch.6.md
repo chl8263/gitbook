@@ -255,7 +255,7 @@ class NoResultProcessor: Processor<Unit> {
 
 컬렉션의 데이터를 수정하려면 `kotlin.collections.MutableCollection` 일반 인터페이스인 `kotlin.collections.Collection`을 확장한다.
 
-![](<../../.gitbook/assets/image (20) (1).png>)
+![](<../../.gitbook/assets/image (20).png>)
 
 
 
