@@ -24,7 +24,7 @@ crontab : 설정
 
 예를들어 시스템 전체에 사용되는 crontab인 /etc/crontab 은 아래와 같다.
 
-```text
+```
 # /etc/crontab: system-wide crontab
 # Unlike any other crontab you don't have to run the `crontab'
 # command to install the new version when you edit this file
@@ -46,7 +46,7 @@ PATH=/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin
 
 ### Crontab 주기설정
 
-```text
+```
 # ┌───────────── min (0 - 59) 
 # │ ┌────────────── hour (0 - 23) 
 # │ │ ┌─────────────── day of month (1 - 31) 
@@ -61,7 +61,7 @@ PATH=/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin
 
 괄호 안의 숫자 범위 내로 별 대신 입력 할 수 있다.
 
-```text
+```
 # 매분 test.sh 실행
 * * * * * /home/script/test.sh
 
@@ -85,19 +85,19 @@ PATH=/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin
 
 아래의 명령어를 입력하면 현재 사용자별 지정 크론을 입력할 수 있다. 본인이 원하는 크론탭을 바로 위를 참고하여 등록해주면 된다.
 
-```text
+```
 $ crontab -e
 ```
 
 반대로 Crontab에 어떤 내용이 들어있는지는 아래 명령어를 이용하자.
 
-```text
+```
 $ crontab -ㅣ
 ```
 
 Crontab을 지우고 싶다면 아래와 같은 명령어 사용.
 
-```text
+```
 $ crontab -r
 ```
 
@@ -109,11 +109,11 @@ $ crontab -r
 
 아래사진과 같이 /etc/cron.d 디렉토리에 **apache\_add.cron** 이라는 사용자가 원하는 cron 파일을 등록할 수 있다.
 
-![](../../.gitbook/assets/image%20%282%29.png)
+![](<../../.gitbook/assets/image (2) (1).png>)
 
-\[**apache\_add.cron**\] 예
+\[**apache\_add.cron**] 예
 
-```text
+```
 SHELL=/bin/sh
 PATH=/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin
 
@@ -128,4 +128,3 @@ PATH=/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin
 
 * 양호기준: cron 접근제어 파일 소유자가 root이고, 권한이 600 이하인 경우 양호
 * 취약기준: cron 접근제어 파일 소유자가 root가 아니거나, 권한이 600 이하가 아닌 경우 취약
-
