@@ -39,7 +39,7 @@ Hibernate:
 
 먼저 JPA 의 구조는 아래와 같다.
 
-![](<../../.gitbook/assets/image (2).png>)
+![](../../.gitbook/assets/image.png)
 
 먼저, persist하게 되면 1차캐시에 저장하고 스냅샷을 보관한다. 그리고 insert 쿼리를 생성하여 쓰기 지연 SQL 저장소에 보관을 하게된다.
 
@@ -53,13 +53,13 @@ Hibernate:
 
 entity manager 의 session 내부적으로 persistenceContext 의 entityEntryContext 에 Linked List 와 유사한 방식으로 해당 트랜잭션 내의 entity 들을 관리하게 된다.
 
-![](<../../.gitbook/assets/image (5).png>)
+![](<../../.gitbook/assets/image (13).png>)
 
-![](<../../.gitbook/assets/image (10).png>)
+![](<../../.gitbook/assets/image (4).png>)
 
 entityEntryContext 의 ManagedEntity 들은 아래 그림과 같이 처음 load 된 상태(아래 그림의 loadedState) 의 Entity 의 ID 를 제외한 맴버 값을 가지고 있다.
 
-![](<../../.gitbook/assets/image (1).png>)
+![](<../../.gitbook/assets/image (3).png>)
 
 Flush 를 하는 시점에서 Session(Entity Manager) 의 ActionQueue 에 현재 entity와 load 된 entity 의 값을 비교하여 update List 에 해당 부분을 저장하게 된다.
 
@@ -67,6 +67,6 @@ Flush 를 하는 시점에서 Session(Entity Manager) 의 ActionQueue 에 현재
 
 실제로 JPA 가 최종적으로 Query 를 만들 때 ActionQueue 를 참조하여 수행된다.
 
-![](<../../.gitbook/assets/image (39).png>)
+![](<../../.gitbook/assets/image (20).png>)
 
 위의 예제 에서는 persist(Member) 를 할때 insert List 에 삽입이되고, flush 할때 관리되는 Entity의 변경이 있을시 update List 에 저장되어 최종적으로 query 를 만들 때 insert 한번, update 한번이 DB에 날아가게 되는것.

@@ -8,7 +8,7 @@ Thread 가 생성될 때 컴퓨터 내부적으로 운영체제가 메모리 공
 
 Thread pool 은 작업큐에 들어온 Task 일감들을 미리 생성해 놓은 Thread 들에게 위임하고 Thread 가 일을 마치면 다시 Application 에게 결과값을 반환한다.
 
-![](<../../.gitbook/assets/image (1) (2).png>)
+![](<../../.gitbook/assets/image (1) (1).png>)
 
 Java 에서 ExecuterService 인터페이스, Executor 클래스를 제공하고 있고 Executors 의 다양한 정적 메소드를 이용하여 Thread pool 을 이용.
 
