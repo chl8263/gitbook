@@ -19,6 +19,7 @@
 * [Docker](write/docker/README.md)
   * [Untitled](write/docker/untitled.md)
 * [JPA](write/jpa/README.md)
+  * [JPA OneToOne Unique 조건에 대해](write/jpa/jpa-onetoone-unique.md)
   * [왜 save 후 update 할 때 query가 두번 실행되는가?](write/jpa/save-update-query.md)
 * [Spring JPA](write/spring/spring-jpa/README.md)
   * [Data source 분산 트랜잭션](write/spring/spring-jpa/data-source.md)

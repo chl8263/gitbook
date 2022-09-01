@@ -109,7 +109,7 @@ $ crontab -r
 
 아래사진과 같이 /etc/cron.d 디렉토리에 **apache\_add.cron** 이라는 사용자가 원하는 cron 파일을 등록할 수 있다.
 
-![](<../../.gitbook/assets/image (2).png>)
+![](<../../.gitbook/assets/image (2) (2).png>)
 
 \[**apache\_add.cron**] 예
 
