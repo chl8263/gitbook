@@ -19,6 +19,7 @@
 * [Docker](write/docker/README.md)
   * [Untitled](write/docker/untitled.md)
 * [JPA](write/jpa/README.md)
+  * [MultipleBagFetchException 과 Bag](write/jpa/multiplebagfetchexception-bag.md)
   * [즉시, 지연 로딩과 N+1](write/jpa/n+1.md)
   * [OneToOne Unique 조건에 대해](write/jpa/jpa-onetoone-unique.md)
   * [왜 save 후 update 할 때 query가 두번 실행되는가?](write/jpa/save-update-query.md)
