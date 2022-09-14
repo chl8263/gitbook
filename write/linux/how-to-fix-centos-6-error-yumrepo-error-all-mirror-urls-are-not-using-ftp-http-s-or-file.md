@@ -2,7 +2,7 @@
 
 > centos 6 에서 yum update 등 yum 을 사용할 때 아래와 같은 에러가 난다. 이유는 centos6 지원이 끝나서 보안적인 문제로 인한 것.
 >
-> ```text
+> ```
 > Loaded plugins: fastestmirror, refresh-packagekit, security
 > Setting up Update Process
 > Determining fastest mirrors
@@ -14,7 +14,7 @@
 
 아래 명어를 따라 `CentOS-Base.repo` 를 editer 로 연 뒤
 
-```text
+```
 # cd /etc/yum.repos.d/
 
 # cp CentOS-Base.repo CentOS-Base.repo.old
@@ -25,7 +25,7 @@
 
 내용을 아래로 교체
 
-```text
+```
 [base]
 name=CentOS-$releasever - Base
 # mirrorlist=http://mirrorlist.centos.org/?release=$releasever&arch=$basearch&repo=os&infra=$infra
@@ -53,11 +53,18 @@ gpgcheck=1
 gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-6
 ```
 
-그 다음 아래 명령어로 클랜해주고 실행
+위에 것이 안된다면 아래 것으로 시
 
-```text
+```
+[base] baseurl=https://vault.centos.org/6.10/os/x86_64/ 
+[updates] baseurl=http://vault.centos.org/6.10/updates/x86_64/ 
+[extras] baseurl=http://vault.centos.org/6.10/extras/x86_64/
+```
+
+그 다음 아래 명령어로 클해주고 실행
+
+```
 # yum clean all
 
 # yum update
 ```
-
