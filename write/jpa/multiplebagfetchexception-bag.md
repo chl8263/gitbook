@@ -57,7 +57,7 @@ public class Team {
 
 {% code overflow="wrap" lineNumbers="true" %}
 ```java
-List<Team> team3 = entityManager.createQuery(
+List<Team> team = entityManager.createQuery(
                     "SELECT t " + 
                       "FROM Team t " +
                       "JOIN FETCH t.member " +
@@ -99,7 +99,7 @@ JPA Entity 연관관계의 Collection 은 특정 순서로 연관관계를 검�
 
 자바 컬렉션 프레임워크에서는 Bag이 없기 때문에 엔티티를 영속 상태로 만들 때 **컬렉션 필드를 하이버네이트에서 제공하는 컬렉션(PersistentBag (**<mark style="color:red;">List를 Bag으로 사용</mark>**)) 으로 Wrapping 해서 사용한다.**
 
-### Bag vs List vs Set
+### Bag vs Set vs List&#x20;
 
 Jpa에서 연관관계를 나타낼 때 Bag, List, Set은 어떤 경우에 사용하고 어떤 차이점이 있을까?
 
@@ -131,4 +131,92 @@ Jpa에서 연관관계를 나타낼 때 Bag, List, Set은 어떤 경우에 사�
       * member 를 INSERT할 때 POSITION 값이 저장되지 않는다. @OrderColumn을 Team  엔티티에 매핑하기 때문에 Team .member 의 위치값을 사용해서 POSITION값을 UPDATE 하는 SQL이 추가로 발생한다.
       * member 를 삭제 또는 위치 변경시 연관된 많은 위치 값을 변경해야 한다.
       * 중간에 POSITION 값이 없으면 조회한 리스트에 null이 보관된다. > 컬렌션을 순회할때 NullPointerException이 발생한다.
-    *
+
+### 2개 이상의 Many 연관관계를 Fetch Join 하면 안되는 이유
+
+Fetch Join 과 연관관계 eager 설정 모두 결국 두개 이상의 Join 이 설정 되는 것이다.
+
+아래 Team Entity 에서 Many 연관관계인 `member` 와 `address` 를 Fetch Join 한다고 가정 해보자.
+
+{% code overflow="wrap" lineNumbers="true" %}
+```java
+@Entity
+public class Team {
+
+    @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "TEAM_ID")
+    private Long id;
+
+    @OneToMany(mappedBy = "team")
+    private List<Member> member = new ArrayList<>();
+
+    @OneToMany(mappedBy = "team")
+    private List<Address> address = new ArrayList<>();
+    
+    ....
+```
+{% endcode %}
+
+아래코드와 같이 `Team 하나`에 `2개의 Member`와 `3개의 Address`를 연관관계 매핑을 해주었다.
+
+```java
+Team team = new Team();
+
+Member member = new Member();
+Member member1 = new Member();
+
+Address address = new Address();
+Address address2 = new Address();
+Address address3 = new Address();
+
+member.setTeam(team);
+member1.setTeam(team);
+
+address.setTeam(team);
+address2.setTeam(team);
+address3.setTeam(team);
+
+entityManager.persist(team);
+entityManager.persist(member);
+entityManager.persist(member1);
+
+entityManager.persist(address);
+entityManager.persist(address2);
+entityManager.persist(address3);
+```
+
+{% code overflow="wrap" lineNumbers="true" %}
+```java
+List<Team> team = entityManager.createQuery(
+                    "SELECT t " + 
+                      "FROM Team t " +
+                      "JOIN FETCH t.member " +
+                      "JOIN FETCH t.account")
+                      .getResultList();
+```
+{% endcode %}
+
+해당 JPQL 의 기대하는 SQL 은 대략 아래와 같을것이다. (위의 JPQL 을 실행 하면 duplicate bag 에러 발)
+
+```sql
+SELECT team.*
+     , address.*
+     , member.*
+  FROM Team as team
+  LEFT JOIN Address as address
+    ON team.TEAM_ID = address.team_TEAM_ID 
+  LEFT JOIN Member as member
+    ON team.TEAM_ID = member.TEAM_ID 
+ WHERE team.TEAM_ID = 1
+```
+
+SQL 만 실행했을 때는 아래와 같이  총 6개의 ROW 결과가 나온다.
+
+| TEAM\_ID | ADDRESS\_ID | createTime | updateTime | pw | userName | team\_TEAM\_ID | MEMBER\_ID | createTime | updateTime | pw | userName | TEAM\_ID |
+| -------- | ----------- | ---------- | ---------- | -- | -------- | -------------- | ---------- | ---------- | ---------- | -- | -------- | -------- |
+| 1        | 1           |            |            |    |          | 1              | 1          |            |            |    |          | 1        |
+| 1        | 1           |            |            |    |          | 1              | 2          |            |            |    |          | 1        |
+| 1        | 2           |            |            |    |          | 1              | 1          |            |            |    |          | 1        |
+| 1        | 2           |            |            |    |          | 1              | 2          |            |            |    |          | 1        |
+| 1        | 3           |            |            |    |          | 1              | 1          |            |            |    |          | 1        |
+| 1        | 3           |            |            |    |          | 1              | 2          |            |            |    |          | 1        |
