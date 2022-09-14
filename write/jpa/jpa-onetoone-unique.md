@@ -4,7 +4,7 @@
 
 1:1 테이블 관계의 예시는 아래와 같다.
 
-<figure><img src="../../.gitbook/assets/image (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image.png" alt=""><figcaption></figcaption></figure>
 
 N:1 양방향 매핑처럼 외래 키가 있는 곳이 연관관계의 주인이다.
 
