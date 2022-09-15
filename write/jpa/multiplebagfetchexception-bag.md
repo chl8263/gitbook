@@ -11,9 +11,11 @@ Caused by: org.hibernate.loader.MultipleBagFetchException: cannot simultaneously
 ```
 {% endcode %}
 
-문제 상황은 크게 아래 두개의 상황에서 발생한다.
+****
 
-* 하나의 Entity 에 `to Many` 관계가 두개 이상이고 Eager 로 설정되어 있는 경우&#x20;
+**문제 상황은 크게 아래 두개의 상황에서 발생한다.**
+
+* **하나의 Entity 에 `to Many` 관계가 두개 이상이고 Eager 로 설정되어 있는 경우**&#x20;
 
 {% code overflow="wrap" lineNumbers="true" %}
 ```java
@@ -34,7 +36,7 @@ public class Team {
 ```
 {% endcode %}
 
-* 하나의 Entity 에 `to Many` 관계가 두개 이상이고 Lazy 로 설정되어 있는 상황에서, 해당 Entity에 두개이상의 `to Many` 관계를 Fetch Join 하려할 때
+* **하나의 Entity 에 `to Many` 관계가 두개 이상이고 Lazy 로 설정되어 있는 상황에서, 해당 Entity에 두개이상의 `to Many` 관계를 JPQL Fetch Join 하려할 때**
 
 {% code overflow="wrap" lineNumbers="true" %}
 ```java
