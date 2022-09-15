@@ -196,7 +196,7 @@ List<Team> team = entityManager.createQuery(
 ```
 {% endcode %}
 
-해당 JPQL 의 기대하는 SQL 은 대략 아래와 같을것이다. (위의 JPQL 을 실행 하면 duplicate bag 에러 발)
+해당 JPQL 에서 기대하는 SQL 은 대략 아래와 같을것이다. (위의 JPQL 을 실행 하면 duplicate bag 에러 발)
 
 ```sql
 SELECT team.*
@@ -212,6 +212,8 @@ SELECT team.*
 
 SQL 만 실행했을 때는 아래와 같이  총 6개의 ROW 결과가 나온다.
 
+결국 LEFT JOIN 과 FK 로 인해 Cartesian Product (N x M) 해당 릴레이션의 조합 가능한 모든 릴레이션을 구하기 위한 집합연산이 발생한.
+
 | TEAM\_ID | ADDRESS\_ID | createTime | updateTime | pw | userName | team\_TEAM\_ID | MEMBER\_ID | createTime | updateTime | pw | userName | TEAM\_ID |
 | -------- | ----------- | ---------- | ---------- | -- | -------- | -------------- | ---------- | ---------- | ---------- | -- | -------- | -------- |
 | 1        | 1           |            |            |    |          | 1              | 1          |            |            |    |          | 1        |
@@ -220,3 +222,119 @@ SQL 만 실행했을 때는 아래와 같이  총 6개의 ROW 결과가 나온�
 | 1        | 2           |            |            |    |          | 1              | 2          |            |            |    |          | 1        |
 | 1        | 3           |            |            |    |          | 1              | 1          |            |            |    |          | 1        |
 | 1        | 3           |            |            |    |          | 1              | 2          |            |            |    |          | 1        |
+
+위의 DB에서 나온 6개의 결과값을 아래 `Bag` Collection 으로 설정된 연관관계 컬렉션에 어떻게 매핑할 수있을까?
+
+{% code overflow="wrap" lineNumbers="true" %}
+```java
+@OneToMany(mappedBy = "team")
+private List<Member> bere =new ArrayList<>();
+
+@OneToMany(mappedBy = "team")
+private List<Address> address = new ArrayList<>();
+```
+{% endcode %}
+
+중복도 보장이 안 되고, 순서도 보장이 안되는 Bag 자료구조들을 매핑할 방법이 있을까?  만약 Bag 컬렉션이 더욱 더 많아진다면 Cartesian Product 로 인한 무수히 많은 Row 가 나올 것이고, 해당 ROW 를 어떤 기준으로 Bag 자료구조에 넣을 수없다.
+
+<mark style="color:red;">**즉, 두가지 이상의 Bag 컬렉션을 이용한 Fetch Join 진행 시 Bag 은 순서가 없기 때문에 Hibernate는 올바른 열을 올바른 엔티티에 매핑 할 수 없다.**</mark>
+
+> #### JPA에서 Fetch Join은 아래와 같은 특징을 가지고 있다.
+>
+> * ToOne 관계에서는 몇개든 사용이 가능하다.
+> * ToMany 관계에서는 1개만 사용이 가능하다.
+
+### 2개 이상의 Many 연관관계 Fetch Join 시 Set 을 사용한다면?
+
+그렇다면, Fetch Join 시 Bag 컬렉션 말고 Set 을 사용하면 어떨까?
+
+sc아래와같이 `1개의 Bag` 컬렉션과 `2개의 Set` 컬렉션을 Fetch Join(아래 예제에서 Eager) 하면 어떨까?
+
+{% code overflow="wrap" lineNumbers="true" %}
+```java
+@Entity public class Team {
+    @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "TEAM_ID")
+    private Long id;
+    
+    @OneToMany(mappedBy = "team", fetch = FetchType.EAGER)
+    private Set<Member> member = new HashSet<>();
+
+    @OneToMany(mappedBy = "team", fetch = FetchType.EAGER)
+    private List<Address> address = new ArrayList<>();
+
+    @OneToMany(mappedBy = "team", fetch = FetchType.EAGER)
+
+    private Set<Account> account = new HashSet<>();
+    
+....
+```
+{% endcode %}
+
+Team 하나에 `2개의 Member`, `3개의 Account`, `3개의 Address` 데이터가 있다고 가정하자.
+
+Team 을 아래와 같이 조회해보면
+
+<pre class="language-java" data-overflow="wrap" data-line-numbers><code class="lang-java"><strong>Team foundTeam = entityManager.find(Team.class, 1L);</strong></code></pre>
+
+아래와 같은 쿼리가 날아가는데, Team 에는 `2개의 Member`, `3개의 Account`, `3개의 Address`  의 연관관계가 있기 때문에 18(2 x 3 x 3) 개의 데이터가 Cartesian Product 연산으로 쿼리가 불리어지게된다.
+
+```
+Hibernate: 
+    select
+        team0_.TEAM_ID as TEAM_ID1_9_0_,
+        account1_.TEAM_ID as TEAM_ID6_0_1_,
+        account1_.Account_ID as Account_1_0_1_,
+        account1_.Account_ID as Account_1_0_2_,
+        account1_.createTime as createTi2_0_2_,
+        account1_.updateTime as updateTi3_0_2_,
+        account1_.pw as pw4_0_2_,
+        account1_.TEAM_ID as TEAM_ID6_0_2_,
+        account1_.userName as userName5_0_2_,
+        address2_.team_TEAM_ID as team_TEA6_1_3_,
+        address2_.ADDRESS_ID as ADDRESS_1_1_3_,
+        address2_.ADDRESS_ID as ADDRESS_1_1_4_,
+        address2_.createTime as createTi2_1_4_,
+        address2_.updateTime as updateTi3_1_4_,
+        address2_.pw as pw4_1_4_,
+        address2_.team_TEAM_ID as team_TEA6_1_4_,
+        address2_.userName as userName5_1_4_,
+        member3_.TEAM_ID as TEAM_ID6_6_5_,
+        member3_.MEMBER_ID as MEMBER_I1_6_5_,
+        member3_.MEMBER_ID as MEMBER_I1_6_6_,
+        member3_.createTime as createTi2_6_6_,
+        member3_.updateTime as updateTi3_6_6_,
+        member3_.pw as pw4_6_6_,
+        member3_.TEAM_ID as TEAM_ID6_6_6_,
+        member3_.userName as userName5_6_6_ 
+    from
+        Team team0_ 
+    left outer join
+        Account account1_ 
+            on team0_.TEAM_ID=account1_.TEAM_ID 
+    left outer join
+        Address address2_ 
+            on team0_.TEAM_ID=address2_.team_TEAM_ID 
+    left outer join
+        Member member3_ 
+            on team0_.TEAM_ID=member3_.TEAM_ID 
+    where
+        team0_.TEAM_ID=?
+
+```
+
+**결과 :**
+
+Set Collection 으로 이루어진 Member Entity -> 2개&#x20;
+
+Set Collection 으로 이루어진 Account Entity -> 3개&#x20;
+
+Bag Collection 으로 이루어진 Address Entity -> 18개&#x20;
+
+<figure><img src="../../.gitbook/assets/image (11).png" alt=""><figcaption></figcaption></figure>
+
+Set Collection 인 것들은 중복을 제거하기 때문에 해당 테이블에 있는 Row 갯수만큼 가져오지만 Bag Collection 인 것은 쿼리의 Row 수 만큼 반환하는 것을 볼 수있다.
+
+해당 작업은 정상동작을 하지만 JPA 관점에서 Team 객체의 객체 그래프를 탐색 관점에서 바라볼 때 Team 의 Address 값이 저렇게 들어가있는것이 옳은 것일까?
+
+따라서 **단일 JPQL 쿼리에서 동시에 두 개의 컬렉션을 가져오는 경우 접근 방식이** Cartesian Product**을 생성하는 성능적인 문제와 객체 관점의 데이터 정합성 문제가 있기 때문에 상황에 맞게 Set 과 Bag 컬렉션을 사용해야한다.**
