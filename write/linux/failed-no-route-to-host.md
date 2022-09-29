@@ -18,7 +18,7 @@
 
 * ★주의★ 방화벽 룰이 모두 사라지게 되니 보안상 취약할 수 있음
 
-![](<../../.gitbook/assets/image (5).png>)
+![](<../../.gitbook/assets/image (5) (1).png>)
 
 ### - 연결 확인
 

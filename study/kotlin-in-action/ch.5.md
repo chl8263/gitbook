@@ -241,7 +241,7 @@ people.map(Person::name)
 
 아래의 그림처럼 시퀀스는 컬렉션을 만들지 않고 시퀀스로 map연산에서 이미 find 를 찾았으면 더이상 뒤의 연산을 하지 않아도 되기때문에 효율적이다.
 
-![](<../../.gitbook/assets/image (18).png>)
+![](<../../.gitbook/assets/image (18) (1).png>)
 
 filter, map 또한 순서에 따라 연산 횟수가 다르다
 

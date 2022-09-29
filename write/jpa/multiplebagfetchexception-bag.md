@@ -246,11 +246,11 @@ private List<Address> address = new ArrayList<>();
 > * ToOne 관계에서는 몇개든 사용이 가능하다.
 > * ToMany 관계에서는 1개만 사용이 가능하다.
 
-### 2개 이상의 Many 연관관계 Fetch Join 시 Set 을 사용한다면?
+### 해결방법 - 2개 이상의 Many 연관관계 Fetch Join 시 Set 을 사용
 
-그렇다면, Fetch Join 시 Bag 컬렉션 말고 Set 을 사용하면 어떨까?
+그렇다면, Fetch Join 시 Bag 컬렉션 말고 Set 을 사용하면 MultipleBagFetchException 을 피할 수 있다.
 
-sc아래와같이 `1개의 Bag` 컬렉션과 `2개의 Set` 컬렉션을 Fetch Join(아래 예제에서 Eager) 하면 어떨까?
+아래와같이 `1개의 Bag` 컬렉션과 `2개의 Set` 컬렉션을 Fetch Join(아래 예제에서 Eager) 하면 어떨까?
 
 {% code overflow="wrap" lineNumbers="true" %}
 ```java
@@ -333,9 +333,9 @@ Set Collection 으로 이루어진 Account Entity -> 3개&#x20;
 
 Bag Collection 으로 이루어진 Address Entity -> 18개&#x20;
 
-<figure><img src="../../.gitbook/assets/image (11).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (11) (2).png" alt=""><figcaption></figcaption></figure>
 
-Set Collection 인 것들은 중복을 제거하기 때문에 해당 테이블에 있는 Row 갯수만큼 가져오지만 Bag Collection 인 것은 쿼리의 Row 수 만큼 반환하는 것을 볼 수있다.
+Set Collection 인 것들은 중복을 제거하기 때문에 Entity에 해당하는 테이블 Row 갯수만큼 가져오지만 Bag Collection 인 것은 쿼리의 Row 수 만큼 반환하는 것을 볼 수있다.
 
 해당 작업은 정상동작을 하지만 JPA 관점에서 Team 객체의 객체 그래프를 탐색 관점에서 바라볼 때 Team 의 Address 값이 저렇게 들어가있는것이 옳은 것일까?
 

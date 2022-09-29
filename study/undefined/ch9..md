@@ -128,7 +128,7 @@ public class Client{
 
 #### 의존성 원칙과 패키지
 
-![](<../../.gitbook/assets/image (14).png>)
+![](<../../.gitbook/assets/image (14) (1).png>)
 
 다음과 같이 Movie 패키지 따로, DiscountPolicy 상위 클래스와 하위클래스가 합쳐진 패키지가 따로 있으면 컴파일 할 때 DiscountPolicy의 하위 클래스가 바뀔때 마다 DiscountPolicy의 패키지가 재 컴파일 될것이고 그에따라 Movie 패키지 또한 재 컴파일이 되어야 한다. Movie에 의존하는 또 다른 패키지가 있다면 컴파일을 의존성의 그래프를 타고 애플리케이션 코드 전체로 번져갈 것이다.
 
