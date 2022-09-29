@@ -1,6 +1,6 @@
 # spring data jpa 동작방식과 Dynamic Proxy, AOP
 
-## 문제 상
+## 문제 상황
 
 Spring Data Jpa 는 Entity 를 interface 의 JpaRepository 상속 부분에 명시만 해주면 알아서 Spring 이 제공하는 Jpa 의 편리하고 다양한 기술들을 사용할 수있다.
 
@@ -239,7 +239,7 @@ public static Object newProxyInstance(
 
 
 
-아래 예제 코드를 보자. 위의 Proxy 패턴에서 사용했던 class 들 중 Proxy 에 해당하는 코드를 삭제 하고 아래 코드만 남아있는 상태이.
+아래 예제 코드를 보자. 위의 Proxy 패턴에서 사용했던 class 들 중 Proxy 에 해당하는 코드를 삭제 하고 아래 코드만 남아있는 상태.
 
 ```java
 public interface MemberService {    // Subject
