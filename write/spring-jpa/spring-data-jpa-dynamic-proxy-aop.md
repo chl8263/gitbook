@@ -258,34 +258,230 @@ public class DefaultMemberService implements MemberService{    // Real Subject
 이제 Proxy 코드 가 없으니 동적으로 Proxy 를 생성해보자.
 
 ```java
-MemberService memberService = (MemberService) Proxy.newProxyInstance(MemberService.class.getClassLoader(), new Class[]{MemberService.class},
-            new InvocationHandler(){
-
-                MemberService memberService = new DefaultMemberService();    // real subject
-
-                @Override
-                public Object invoke(Object proxy, Method method, Object[] args) throws Throwable {
-                    if (method.getName().equals("printMemberName")) {
-                        // ... some logic
-                        Object invoke = method.invoke(memberService, args);
-                        // ... some logic
-                        return invoke;
-                    } else if (method.getName().equals("getMembersAge")) {
-                        // ... some logic
-                        Object invoke = method.invoke(memberService, args);
-                        // ... some logic
-                        return invoke;
-                    }
-                    return method.invoke(memberService, args);
+MemberService memberService = 
+    (MemberService) Proxy.newProxyInstance(MemberService.class.getClassLoader()
+    , new Class[]{MemberService.class}
+    , new InvocationHandler(){
+        
+            MemberService memberService = new DefaultMemberService();    // real subject
+        
+            @Override
+            public Object invoke(Object proxy, Method method, Object[] args) throws Throwable {
+                if (method.getName().equals("printMemberName")) {
+                    // ... some logic
+                    Object invoke = method.invoke(memberService, args);
+                    // ... some logic
+                    return invoke;
+                } else if (method.getName().equals("getMembersAge")) {
+                    // ... some logic
+                    Object invoke = method.invoke(memberService, args);
+                    // ... some logic
+                    return invoke;
                 }
-            });
+                return method.invoke(memberService, args);
+            }
+        });
 ```
 
 위의 dynamic proxy 의 `InvocationHandler` 에서 `invoke` 메서드를 통해 method 를 직접 제어할수 있고 런타임에 동작하니 기존 코드보다는 유연해 보인다.
 
 하지만 여기서 문제는 `InvocationHandler` 가 그렇게유연하지는 않다는 것이다. `invoke` 메서드에 부가적인 코드들이 들어가서 코드가 방대해 질 수있고 그렇다면 해당 dynamic proxy 를 감싸는 다른 proxy 가 만들어 져야할 수도 있다.
 
-#### <mark style="color:blue;">Spring 에서는 위의 구조를 개선하여 Spring AOP 를 만들었고 그래서 Spring AOP 가 Proxy 기반의 AOP 라고 불리는 것이.</mark>
+#### <mark style="color:blue;">Spring 에서는 위의 구조를 개선하여 Spring AOP 를 만들었고 그래서 Spring AOP 가 Proxy 기반의 AOP 라고 불리는 것이다.</mark>
+
+
+
+## Spring AOP 란?
+
+Dynamic proxy 를 다시 정리해 보면 아래와 같다.
+
+* 다이내믹 프록시는 프록시 팩토리에 의해 런타임 시 다이내믹하게 만들어지는 오브젝트다. 다이내믹 프록시 오브젝트는 타깃의 인터페이스와 같은 타입으로만들어진다.
+* 클라이언트는 다이내믹 프록시 오브젝트를 타깃 인터페이스를 통해 사용할 수 있다.
+* 프록시를 만들 때 인터페이스를 모두 구현해가면서 클래스를 정의하는 수고를 덜 수 있다.
+* 프록시 팩토리에게 인터페이스 정보만 제공해주면 해당 인터페이스를 구현한 클래스의 오브젝트를 자동으로 만들어준다.
+* 프록시로서 필요한 부가기능 제공 코드는 직접 작성해야 한다. 부가기능은 프록시 오브젝트와 독립적으로 InvocationHandler를 구현한 오브젝트에 담는다.
+* InvocationHandler 인터페이스는 아래 메소드 하나만 가진 간단한 인터페이스이다.
+
+```java
+public Object invoke(Object proxy, Method method, Object[] args) throws Throwable;
+```
+
+* invoke( ) 메소드는 리플렉션의 Method 인터페이스를 파라미터로 받는다. 메소드를 호출할 때 전달되는 파라미터도 args로 받는다.
+* 다이내믹 프록시 오브젝트는 클라이언트의 모든 요청을 리플렉션 정보로 변환해서 InvocationHandler 구현 오브젝트의 invoke() 메소드로 넘기는 것이다. 타깃 인터페이스의 모든 메소드 요청이 하나의 메소드로 집중되기 때문에 중복되는 기능을 효과적으로 제공할 수 있다.
+* Hello 인터페이스를 제공하면서 프록시 팩토리에게 다이내믹 프록시를 만들어달라고 요청하면 Hello 인터페이스의 모든 메소드를 구현한 오브젝트를 생성해준다. InvocationHandler 인터페이스를 구현한 오브젝트를 제공해주면 다이내믹 프록시가받는 모든 요청을 InvocationHandler의 invoke() 메소드로 보내준다. Hello 인터페이스의 메소드가 아무리 많더라도 invoke() 메소드 하나로 처리할 수 있다.
+
+<figure><img src="../../.gitbook/assets/image.png" alt=""><figcaption></figcaption></figure>
+
+### Dynamic proxy 의 확장
+
+* InvocationHandler 방식의 또 한 가지 장점은 타깃의 종류에 상관없이도 적용이 가능하다는 점이다. 어차피 리플렉션의 Method 인터페이스를 이용해 타깃의 메소드를 호출하는 것이니 Hello 타입의 타깃으로 제한할 필요도 없다.
+
+```java
+public class UppercaseHandler implements InvocationHandler {
+
+    private final Object target;
+
+    public UppercaseHandler(Object target) {
+        this.target = target;
+    }
+
+    @Override
+    public Object invoke(Object proxy, Method method, Object[] args) throws Throwable {
+        Object result =  method.invoke(target, args);
+        if (result instanceof String) {
+            return ((String) result).toUpperCase();
+        }
+        return result;
+    }
+}
+```
+
+* InvocationHandler는 단일 메소드에서 모든 요청을 처리하기 때문에 어떤 메소드에 어떤 기능을 적용할지를 선택하는 과정이 필요할 수도 있다.
+* 호출하는 메소드의 이름, 파라미터의 개수와 타입, 리턴 타입 등의 정보를 가지고 부가적인 기능을 적용할 메소드를 선택할 수 있다.
+
+### Dynamic proxy 의 한계
+
+* 다이내믹 프록시 오브젝트는 일반적인 스프링의 빈으로는 등록할 방법이 없다. 스프링의 빈은 기본적으로 클래스 이름과 프로 퍼티로 정의된다. 스프링은 지정된 클래스 이름을 가지고 리플렉션을 이용해서 해당 클래스의 오브젝트를 만든다.
+* 스프링은 내부적으로 리플렉션 API를 이용해서 빈 정의에 나오는 클래스 이름을 가지고 빈 오브젝트를 생성한다. 문제는 다이내믹 프록시 오브젝트는 이런 식으로 프록시 오브젝트가 생성되지 않는다는 점이다. 사실 다이내믹 프록시 오브젝트의 클래스가 어떤 것인지 알 수도 없다. 클래스 자체도 내부적으로 다이내믹하게 새로 정의해서 사용하기 때문이다.
+* 사전에 프록시 오브젝트의 클래스 정보를 미리 알아내서 스프링의 빈에 정의할 방법이 없다.
+
+### Dynamic proxy 의 한계에 대한 대안 - 스프링의 프록시 팩토리 빈
+
+**다이내믹 프록시를 만들어주는 팩토리 빈**
+
+```java
+public interface FactoryBean<T> {
+	@Nullable
+	T getObject() throws Exception;
+	@Nullable
+	Class<?> getObjectType();
+	default boolean isSingleton() {
+		return true;
+	}
+}
+```
+
+* Proxy의 newProxylnstance() 메소드를 통해서만 생성이 가능한 다이내믹 프록시 오브젝트는 일반적인 방법으로는 스프링의 빈으로 등록할 수 없다.&#x20;
+* 대신 팩토리 빈을 사용하면 다이내믹 프록시 오브젝트를 스프링의 빈으로 만들어줄 수가 있다.
+
+
+
+### ProxyFactoryBean **of Spring** <a href="#41-proxyfactorybean" id="41-proxyfactorybean"></a>
+
+* 위의 **팩토리 빈 또한 한계점 때문 Spring 에서  Wrapping 하여 나온 대안**
+* 스프링은 프록시 오브젝트를 생성해주는 기술을 추상화한 팩토리 빈을 제공해준다. 팩토리 빈 이름은 ProxyFactoryBean으로 프록시를 생성해서 빈 오브젝트로 등록하게 해주는 역할을 한다.
+* ProxyFactoryBean은 순수하게 프록시를 생성하는 작업만을 담당하고 프록시를 통해 제공해줄 부가기능은 별도의 빈에 둘수 있다.
+* ProxyFactoryBean이 생성하는 프록시에서 사용할 부가기능은 Methodlnterceptor 인터페이스를 구현해서 만든다. Methodlnterceptor는 InvocationHandler와 비슷하지만 한 가지 다른 점이 있다.
+  * InvocationHandler의 invoke() 메소드는 타깃 오브젝트에 대한 정보를 제공하지 않는다. 따라서 타깃은 InvocationHandler를 구현한 클래스가 직접 알고 있어야 한다.
+  * Methodlnterceptor의 invoke() 메소드는 ProxyFactoryBean으로부터 타깃 오브젝트에 대한 정보까지도 함께 제공받는다.
+* Methodlnterceptor는 타깃 오브젝트에 상관없이 독립적으로 만들어질 수 있다.
+
+```java
+@Test
+public void proxyFactoryBean() {
+    ProxyFactoryBean pfBean =new ProxyFactoryBean();
+    pfBean.setTarget(new HelloTarget());
+    pfBean.addAdvice(new UpperCaseAdvice());
+
+    Hello proxiedHello = (Hello) pfBean.getObject();
+    assertThat(proxiedHello.sayHi("gunju"), is("HI GUNJU"));
+}
+
+private class UpperCaseAdvice implements MethodInterceptor {
+    @Override
+    public Object invoke(MethodInvocation invocation) throws Throwable {
+        Object result = invocation.proceed();
+        if (result instanceof String) {
+            return ((String) result).toUpperCase();
+        }
+        return result;
+    }
+}
+```
+
+
+
+#### **어드바이스: 타깃이 필요 없는 순수한 부가기능**
+
+* Methodlnterceptor를 구현한 UppercaseAdvice에는 타깃 오브젝트가 등장하지 않는다. Methodlnterceptor로는 메 소드 정보와 함께 타깃 오브젝트가 담긴 Methodlnvocation 오브젝트가 전달된다.
+* Methodlnvocation은 일종의 콜백 오브젝트로, proceed() 메소드를 실행하면 타깃 오브젝트의 메소드를 내부적으로 실행해주는 기능이 있다.
+* ProxyFactoryBean은 작은 단위의 템플릿/콜백 구조를 응용해서 적용했기 때문에 템플릿 역할을 하는 Methodlnvocation을 싱글톤으로 두고 공유할 수 있다.
+* addAdvice() 메소드를 통해 ProxyFactoryBean에는 여러 개의 Methodlnterceptor를 추가할 수 있다. ProxyFactoryBean 하나만으로 여러 개의 부가 기능을 제공해주는 프록시를 만들 수 있다는 뜻이다.
+* Methodlnterceptor는 Advice 인터페이스를 상속하고 있는 서브인터페이스이다.
+* 타깃 오브젝트에 적용하는 부가기능을 담은 오브젝트를 스프링에서는 어드바이스라고 부른다.
+* ProxyFactoryBean은 인터페이스 타입을 제공받지도 않는다. ProxyFactoryBean에 있는 인터페이스 자동검출 기능을 사용해 타깃 오브젝트가 구현하고 있는 인터페이스 정보를 알아낸다. 그리고 알아낸 인터페이스를 모두 구현하는 프록시를 만들어준다.
+  * 타깃 오브젝트가 구현하는 인터페이스 중에서 일부만 프록시에 적용하기를 원한다면 인터페이스 정보를 직접 제공해줘도 된다.
+* ProxyFactoryBean은 기본적으로 JDK가 제공하는 다이내믹 프록시를 만들어준다. 경우에 따라서는 CGLib이라고 하는 오픈소스 바이트코드 생성 프레임워크를 이용해 프록시를 만들기도 한다.
+* 재사용 가능한 기능을 만들어두고 바뀌는 부분(콜백 오브젝트와 메소드 호출정보)만 외부에서 주입해서 이를 작업 흐름(부가 기능 부여) 중에 사용하도록 하는 전형적인 템플릿/콜백 구조다.
+
+#### **포인트컷: 부가기능 적용 대상 메소드 선정 방법**
+
+* 기존방식
+
+![](https://gunju-ko.github.io/assets/img/posts/toby-spring/aop/AOP-3.4.png)
+
+* 문제점
+  * 타깃이 다르고 메소드 선정 방식이 다르다면 InvocationHandler 오브젝트를 여러 프록시가 공유할 수 없다.
+*   스프링의 ProxyFactoryBean 방식은 두 가지 확장 기능인 부가기능과 메소드 선정 알고리즘을 활용하는 유연한 구조를 제공한다.
+
+    * 어드바이스 : 부가기능을 제공
+    * 포인트 컷 : 메소드 선정 알고리즘, Pointcut 인터페이스를 구현해서 만듬
+
+    ![](https://gunju-ko.github.io/assets/img/posts/toby-spring/aop/AOP-3.4.1.png)
+
+```java
+@Test
+public void proxyFactoryBean() {
+    ProxyFactoryBean pfBean = new ProxyFactoryBean();
+    pfBean.setTarget(new HelloTarget());
+
+    NameMatchMethodPointcut pointcut = new NameMatchMethodPointcut();
+    pointcut.setMappedName("sayH*");
+    pfBean.addAdvisor(new DefaultPointcutAdvisor(pointcut, new UpperCaseAdvice()));
+
+    Hello proxiedHello = (Hello) pfBean.getObject();
+    assertThat(proxiedHello.sayHi("gunju"), is("HI GUNJU"));
+    assertThat(proxiedHello.sayThankYou("gunju"), is("Thank you gunju"));
+}
+```
+
+* 어드바이스와 포인트컷을 묶은 오브젝트를 인터페이스 이름을 따서 어드바이저라고 부른다.
+* 어드바이저 = 포인트컷(메소드 선정 알고리즘)+ 어드바이스(부가 기능)
+
+
+
+**어드바이스와 포인트컷의 재사용**
+
+* ProxyFactoryBean은 스프링의 DI와 템플릿/콜백 패턴, 서비스 추상화 등의 기법이 모두 적용된 것이다. 그 덕분에 독립적이며 여러 프록시가 공유할 수 있는 어드바이스와 포인트컷으로 확장 기능을 분리할 수 있었다.
+
+![](https://gunju-ko.github.io/assets/img/posts/toby-spring/aop/AOP-3.4.2.png)
+
+
+
+### 그렇다면 AOP 란?
+
+AOP는 Aspect Oriented Programming의 약자로 관점 지향 프로그래밍이라고 불린다.
+
+&#x20;관점 지향은 쉽게 말해 어떤 로직을 기준으로 핵심적인 관점, 부가적인 관점으로 나누어서 보고 그 관점을 기준으로 각각 모듈화하겠다는 것이다.&#x20;
+
+여기서 모듈화란 어떤 공통된 로직이나 기능을 하나의 단위로 묶는 것을 말한다.&#x20;
+
+AOP에서 각 관점을 기준으로 로직을 모듈화한다는 것은 코드들을 부분적으로 나누어서 모듈화하겠다는 의미다.&#x20;
+
+이때, 소스 코드상에서 다른 부분에 계속 반복해서 쓰는 코드들을 발견할 수 있는 데 이것을 흩어진 관심사 (Crosscutting Concerns)라 부른다.&#x20;
+
+#### AOP 주요 개념
+
+* Aspect : 위에서 설명한 흩어진 관심사를 모듈화 한 것. 주로 부가기능을 모듈화함. Target : Aspect를 적용하는 곳 (클래스, 메서드 .. )&#x20;
+* Advice : 실질적으로 어떤 일을 해야할 지에 대한 것, 실질적인 부가기능을 담은 구현체&#x20;
+* JointPoint : Advice가 적용될 위치, 끼어들 수 있는 지점. 메서드 진입 지점, 생성자 호출 시점, 필드에서 값을 꺼내올 때 등 다양한 시점에 적용가능&#x20;
+* PointCut : JointPoint의 상세한 스펙을 정의한 것. 'A란 메서드의 진입 시점에 호출할 것'과 같이 더욱 구체적으로 Advice가 실행될 지점을 정할 수 있음
+
+
+
+
+
+
 
 
 
