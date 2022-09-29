@@ -487,6 +487,8 @@ AOP에서 각 관점을 기준으로 로직을 모듈화한다는 것은 코드�
 
 ref:&#x20;
 
-[https://www.oodesign.com/proxy-pattern](https://www.oodesign.com/proxy-pattern)
+{% embed url="https://gunju-ko.github.io/toby-spring/2018/11/20/AOP.html" %}
 
-[http://velog.io/@dev\_leewoooo/Dynamic-Proxy%EB%9E%80](https://velog.io/@dev\_leewoooo/Dynamic-Proxy%EB%9E%80)
+{% embed url="https://www.oodesign.com/proxy-pattern" %}
+
+{% embed url="http://velog.io/@dev_leewoooo/Dynamic-Proxy%EB%9E%80" %}
