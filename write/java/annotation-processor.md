@@ -209,3 +209,87 @@ lombok 은 위와같은 원리로 ** **<mark style="color:blue;">**컴파일 시
 2. 실행되지 않은 애노테이션 프로세서들을 수행. (각각의 프로세서는 모두 각자에 역할에 맞는 구현이 되어있어야합니다.)
 3. 프로세서 내부에서 애노테이션이 달린 Element(변수, 메소드, 클래스 등)들에 대한 처리. (보통 이곳에서 자바 클래스를 생성.)
 4. 컴파일러가 모든 애노테이션 프로세서가 실행되었는지 확인하고, 그렇지 않다면 반복해서 위 작업을 수행.
+
+### Annotation processor 생성하기
+
+Annotation processor 는  `javax.annotation.processing` 의 `AbstractProcessor` 를 상속받아 사용한다.
+
+```java
+public class NiceProcessor extends AbstractProcessor {
+    ....
+}
+```
+
+AbstractProcessor 의 대표적인 메소드를 몇가지 살펴보자.
+
+
+
+1. getSupportedAnnotationTypes
+
+해당 메소드는 어떤 annotation 을 지원할 것인지에 대해 표시하는 기능이다.
+
+return 부분에 Set으로 지원하고자 하는 Annotation class 의 이름을 적어주면 `process` 메소드에 지원하는 annotation 를 다룰 수 있다.
+
+```java
+public class NiceProcessor extends AbstractProcessor 
+   @Override
+    public Set<String> getSupportedAnnotationTypes() {  // Which annotations are supported
+        return new HashSet<>(Collections.singletonList(Nice.class.getName()));
+    }
+}
+```
+
+2\. getSupportedSourceVersion
+
+어떤 Java 버전을 지원할 것인가에 대한 것.
+
+```java
+public class NiceProcessor extends AbstractProcessor 
+    @Override
+    public SourceVersion getSupportedSourceVersion() {  // Which source code are supported
+        return super.getSupportedSourceVersion();
+    }
+}
+```
+
+3\. process
+
+실제 annotation processor 가 실행되는 구간.
+
+지원하는 annotation 이 class, interface, method 에 붙어있는지 확인 가능하고 또한 에러까지 낼 수 있다.
+
+해당 메소드에서 실질적으 Java 코드를 삽입하는 구간.
+
+```java
+public class NiceProcessor extends AbstractProcessor 
+
+    // element : The unit on source code. For instance class element, method element etc..
+    // round : Annotation processor work like round, the processor find element sequentially. When find one of element the processor will process next element.
+        // It is working like Spring filter chain.
+    @Override
+    public boolean process(Set<? extends TypeElement> annotations, RoundEnvironment roundEnv) {
+        Set<? extends Element> elements = roundEnv.getElementsAnnotatedWith(Nice.class);
+        for (Element element : elements) {
+            if (element.getKind() != ElementKind.INTERFACE) {
+                processingEnv.getMessager().printMessage(Diagnostic.Kind.ERROR, "Nice annotation can not be used on " + element.getSimpleName());
+            } else {
+                processingEnv.getMessager().printMessage(Diagnostic.Kind.NOTE, "processing " + element.getSimpleName());
+            }
+
+            // create java file in here
+            Filer filer = processingEnv.getFiler();
+            try {
+                JavaFile.builder(className.packageName(), magicMoja)
+                        .build()
+                        .writeTo(filer);
+            } catch (IOException e) {
+                processingEnv.getMessager().printMessage(Diagnostic.Kind.ERROR, "FATAL
+                        ERROR: " + e);
+            }
+            ///////////////////////////
+        }
+
+        return true; // If return true, other annotation processor never process this annotation
+    }
+}
+```
