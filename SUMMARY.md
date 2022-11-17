@@ -4,7 +4,8 @@
 
 ## write
 
-* [DB](write/db.md)
+* [DB](write/db/README.md)
+  * [FULLTEXT(전문검색) Index 란?](write/db/fulltext-index.md)
 * [Maven](write/maven.md)
 * [RegExr](write/regexr/README.md)
   * [정규표현식 문법](write/regexr/undefined.md)

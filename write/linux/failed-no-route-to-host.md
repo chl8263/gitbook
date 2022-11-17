@@ -10,7 +10,7 @@
 
 ### - 서버측 확인
 
-![](<../../.gitbook/assets/image (4) (1).png>)
+![](<../../.gitbook/assets/image (4) (1) (1).png>)
 
 
 
@@ -22,5 +22,5 @@
 
 ### - 연결 확인
 
-![](<../../.gitbook/assets/image (6) (1) (1).png>)
+![](<../../.gitbook/assets/image (6) (1).png>)
 
