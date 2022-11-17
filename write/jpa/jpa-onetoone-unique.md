@@ -14,7 +14,7 @@ N:1 양방향 매핑처럼 외래 키가 있는 곳이 연관관계의 주인이
 
 아래 예시 그림처럼 외래키가 없는 테이블인데 Entity 객체에서 참조하려한다면 연관관계 매핑 오류가 난다.
 
-<figure><img src="../../.gitbook/assets/image (3) (2).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (3) (2) (1).png" alt=""><figcaption></figcaption></figure>
 
 1:1, one to one 이라는 말은 ;외래키를 이용하여 하나의 매핑된 데이터가 있다’ 라는 말인데 그럼 당연히 외래키에 대해 unique 제약조건이 필요하고 걸어주는 것이 당연한게 아닐까?
 

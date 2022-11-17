@@ -55,7 +55,7 @@ Spring 은 이를 Wrapping 해서 `org.springframework.aop.framework` package �
 
 &#x20;`org.springframework.data.repository.core.support` package 의 `RepositoryFactorySupport`  가 `ProxyFactory` 를 이용하여 해당 작업을 진행한다.
 
-<figure><img src="../../.gitbook/assets/image (3).png" alt=""><figcaption><p><code>RepositoryFactorySupport.class</code> 의 패키지 스캔부</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (3) (2).png" alt=""><figcaption><p><code>RepositoryFactorySupport.class</code> 의 패키지 스캔부</p></figcaption></figure>
 
 ## 그렇다면 동작 원리는..?
 
@@ -71,7 +71,7 @@ java 의 DynamicProxy 를 사용하여 해당 동작을 하는데 구체적으�
 
 클라이언트는 Real Subject 를 사용하는 대신 Proxy 만을 사용하고 Proxy에서 Real Subject 를 사용한다.
 
-<figure><img src="../../.gitbook/assets/image (4).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (4) (3).png" alt=""><figcaption></figcaption></figure>
 
 뭔소린지 모르겠으니 코드를 보자.
 
