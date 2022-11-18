@@ -50,7 +50,7 @@
 
 #### MyISAM engine 의 index 설계
 
-<figure><img src="../../../.gitbook/assets/image (2).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (2) (4).png" alt=""><figcaption></figcaption></figure>
 
 * MyISAM 테이블은 세컨더리 인덱스가 물리적인 주소를 바로 가진다.
 

@@ -5,6 +5,7 @@
 ## write
 
 * [DB](write/db/README.md)
+  * [MySQ 실행계획 분석방법](write/db/mysq.md)
   * [FULLTEXT(전문검색) Index 란?](write/db/fulltext-index.md)
 * [Maven](write/maven.md)
 * [RegExr](write/regexr/README.md)
