@@ -6,7 +6,7 @@
 
 [https://emptyreset.tistory.com/20](https://emptyreset.tistory.com/20) 을 참조해 봤지만 실패함.
 
-![](<../../.gitbook/assets/image (3) (1).png>)
+![](<../../.gitbook/assets/image (3) (1) (1).png>)
 
 ### - 서버측 확인
 
@@ -22,5 +22,5 @@
 
 ### - 연결 확인
 
-![](<../../.gitbook/assets/image (6) (1).png>)
+![](<../../.gitbook/assets/image (6) (1) (1).png>)
 

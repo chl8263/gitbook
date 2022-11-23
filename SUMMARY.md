@@ -63,6 +63,7 @@
 ## STUDY
 
 * [Real MySQL](study/real-mysql/README.md)
+  * [11. 쿼리 작성 및 최적화](study/real-mysql/11..md)
   * [8. 인덱스](study/real-mysql/8./README.md)
     * [8.1 디스크 읽기 방식](study/real-mysql/8./8.1.md)
 * [English](study/english/README.md)

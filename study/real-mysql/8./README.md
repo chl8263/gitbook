@@ -43,7 +43,7 @@
 * 트리구조에서 루트 노드도 아니고 리프 노드도 아닌 중간의 노드를 Branch node 라 한다.
 * 인덱스 Leaf node 는 항상 실제 데이터 레코드를 찾아가기 위한 주솟값을 가지고 있다.
 
-<figure><img src="../../../.gitbook/assets/image (6).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (6) (1).png" alt=""><figcaption></figcaption></figure>
 
 * 위 그림처럼 인덱스의 키 값은 모두 정렬되어 있지만, 레코드는 정렬되어 있지 않고 임의의 순서로 저장되 있다.
 * Insert 순서대로 저장되는것 처럼 생각하지만 Delete 된 레코드의 빈 공간을 재사용 하기 때문에 항상 Insert 순서대로 레코드가 저장되는 설계는 아니다.

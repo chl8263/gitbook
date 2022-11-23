@@ -55,7 +55,7 @@ Spring 은 이를 Wrapping 해서 `org.springframework.aop.framework` package �
 
 &#x20;`org.springframework.data.repository.core.support` package 의 `RepositoryFactorySupport`  가 `ProxyFactory` 를 이용하여 해당 작업을 진행한다.
 
-<figure><img src="../../.gitbook/assets/image (3).png" alt=""><figcaption><p><code>RepositoryFactorySupport.class</code> 의 패키지 스캔부</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (3) (1).png" alt=""><figcaption><p><code>RepositoryFactorySupport.class</code> 의 패키지 스캔부</p></figcaption></figure>
 
 ## 그렇다면 동작 원리는..?
 
@@ -65,7 +65,7 @@ java 의 DynamicProxy 를 사용하여 해당 동작을 하는데 구체적으�
 
 ### Proxy 패턴이란?
 
-<figure><img src="../../.gitbook/assets/image (14).png" alt=""><figcaption><p><a href="https://en.wikipedia.org/wiki/Proxy_pattern">https://en.wikipedia.org/wiki/Proxy_pattern</a></p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (14) (2).png" alt=""><figcaption><p><a href="https://en.wikipedia.org/wiki/Proxy_pattern">https://en.wikipedia.org/wiki/Proxy_pattern</a></p></figcaption></figure>
 
 같은 Real Subject 와 Proxy 는 같은 Subject(Interface) 를 구현한다.
 
@@ -310,7 +310,7 @@ public Object invoke(Object proxy, Method method, Object[] args) throws Throwabl
 * 다이내믹 프록시 오브젝트는 클라이언트의 모든 요청을 리플렉션 정보로 변환해서 InvocationHandler 구현 오브젝트의 invoke() 메소드로 넘기는 것이다. 타깃 인터페이스의 모든 메소드 요청이 하나의 메소드로 집중되기 때문에 중복되는 기능을 효과적으로 제공할 수 있다.
 * Hello 인터페이스를 제공하면서 프록시 팩토리에게 다이내믹 프록시를 만들어달라고 요청하면 Hello 인터페이스의 모든 메소드를 구현한 오브젝트를 생성해준다. InvocationHandler 인터페이스를 구현한 오브젝트를 제공해주면 다이내믹 프록시가받는 모든 요청을 InvocationHandler의 invoke() 메소드로 보내준다. Hello 인터페이스의 메소드가 아무리 많더라도 invoke() 메소드 하나로 처리할 수 있다.
 
-<figure><img src="../../.gitbook/assets/image (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (1) (2).png" alt=""><figcaption></figcaption></figure>
 
 ### Dynamic proxy 의 확장
 
