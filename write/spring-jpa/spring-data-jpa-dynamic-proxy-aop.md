@@ -65,7 +65,7 @@ java 의 DynamicProxy 를 사용하여 해당 동작을 하는데 구체적으�
 
 ### Proxy 패턴이란?
 
-<figure><img src="../../.gitbook/assets/image (14) (2).png" alt=""><figcaption><p><a href="https://en.wikipedia.org/wiki/Proxy_pattern">https://en.wikipedia.org/wiki/Proxy_pattern</a></p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (14).png" alt=""><figcaption><p><a href="https://en.wikipedia.org/wiki/Proxy_pattern">https://en.wikipedia.org/wiki/Proxy_pattern</a></p></figcaption></figure>
 
 같은 Real Subject 와 Proxy 는 같은 Subject(Interface) 를 구현한다.
 
@@ -149,7 +149,7 @@ public class DefaultMemberService implements MemberService{
 }
 ```
 
-<figure><img src="../../.gitbook/assets/image (6) (2).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (6) (2) (2).png" alt=""><figcaption></figcaption></figure>
 
 
 
