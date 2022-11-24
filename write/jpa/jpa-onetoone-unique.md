@@ -29,4 +29,4 @@ JPA 에서 OneToOne 매핑 해줬다고 강제로 제약조건이 생기는 것�
 
 * mysql 은 unique 제약조건에 NULL 을 허용하기 때문에 `@JoinColumn(name = "MEMBER_ID", unique = true)` 을 걸어도 다수의 null 이 들어갈 수 있음
 
-<figure><img src="../../.gitbook/assets/image (6) (2) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (6) (2).png" alt=""><figcaption></figcaption></figure>
