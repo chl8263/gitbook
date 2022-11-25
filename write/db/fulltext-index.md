@@ -6,7 +6,7 @@
 
 어떤  어플리케이션에서 "스노우보드 잘 타는법'' 과  같은 특정 단어 혹은  문장을검색한다고 해보자.
 
-<figure><img src="../../.gitbook/assets/image (5).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (5) (3).png" alt=""><figcaption></figcaption></figure>
 
 DB 에 `like` 구문을 이용해서 검색을 진행할 것이다.&#x20;
 
