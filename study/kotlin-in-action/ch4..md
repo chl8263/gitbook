@@ -335,9 +335,9 @@ val client2 = Client("ewan1", 123)
 print(client1 == client2)
 ```
 
-위의 코드의 결과는 false 를 출력한다. 두 개게가 동드하지 않는다는 것이다.
+위의 코드의 결과는 false 를 출력한다. 두 객체가 동등하지 않는다는 것이다.
 
-갹체의 프로퍼티 값이 같을 때 동일한 객체라고 판단하기 위한 메서드를 추가하자.
+객체의 프로퍼티 값이 같을 때 동일한 객체라고 판단하기 위한 메서드를 추가하자.
 
 ```kotlin
 override fun equals(other: Any?): Boolean {
