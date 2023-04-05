@@ -332,7 +332,7 @@ Kotlin 에서는 **==** 연산자가 이를 대신한다.
 val client1 = Client("ewan1", 123)
 val client2 = Client("ewan1", 123)
 
-print(client1 == client2)
+print(client1 === client2)
 ```
 
 위의 코드의 결과는 false 를 출력한다. 두 객체가 동등하지 않는다는 것이다.
