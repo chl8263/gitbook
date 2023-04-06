@@ -22,6 +22,7 @@
   * [Synchronized 정리](write/java/synchronized.md)
 * [Docker](write/docker/README.md)
   * [Untitled](write/docker/untitled.md)
+* [kubernetes](write/kubernetes.md)
 * [JPA](write/jpa/README.md)
   * [MultipleBagFetchException 과 Bag](write/jpa/multiplebagfetchexception-bag.md)
   * [즉시, 지연 로딩과 N+1](write/jpa/n+1.md)
