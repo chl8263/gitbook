@@ -465,9 +465,33 @@ Payroll.allEmpliyee // . 을 이용하여 프로퍼티, 메소드 접근가능
 
 코틀린 언어는 Java의 Static 키워드를 지원 하지 않는다.
 
-kotlin 의 클래스 내부에 private 에는 외부에서 접근할 수 없다.
+kotlin 의 클래스 내부에 private 에는 외부에서 접근할 수 없다.&#x20;
 
 하지만 **companion**접근자를 이용하면 클래스 내부에 접근할 수 있다.
+
+
+
+**companion** object **에서 외부** class 의 맴버에 접근하려면 반드시 아래와 같이 **companion** object 안에서  사용하고자 하는 class 의 가시성을  선언을 해주어야 한다.
+
+```kotlin
+class MyClass {
+    private val myPrivateVar = 42
+
+    companion object {
+        fun printPrivateVar() {
+            val myObject = MyClass()    // 선언
+            println(myObject.myPrivateVar)
+        }
+    }
+}
+```
+
+```kotlin
+class MyClass(private var privateMember: Int) {
+    val publicProperty: Int
+        get() = privateMember // error, 가시성 선언을 하지 않았기 때문, private 변수는 바로 접근 불가
+}
+```
 
 정적 프로퍼티를 정의할 때나 아래와 같이 private 생성자를 이용하여 factory를 구현할 수 있다.
 
