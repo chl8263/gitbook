@@ -185,7 +185,7 @@ AST는 프로그래밍 언어로 작성된 소스 코드의 추상 구문 구조
 > on java 1.5 as well, so it's not completely fragile.
 > ```
 
-lombok 은 위와같은 원리로 ** **<mark style="color:blue;">**컴파일 시점에**</mark>** **<mark style="color:red;">**애노테이션 프로세서**</mark><mark style="color:blue;">**를 사용하여 소스코드의 AST를 조작한다.**</mark>
+lombok 은 위와같은 원리로 <mark style="color:blue;">**컴파일 시점에**</mark>** **<mark style="color:red;">**애노테이션 프로세서**</mark><mark style="color:blue;">**를 사용하여 소스코드의 AST를 조작한다.**</mark>
 
 ## Annotation processer 에 대해
 

@@ -69,7 +69,7 @@ class Test{
 }
 ```
 
-위의 코드에서 서로다른 Thread 두개가 한개의 Test 인스턴스 **addCount()** 메서드를 호출한다.  **synchronized** 키워드가 없으면 **** Test 객체 안의 counter 변수 출력이 순서대로 증가하지않고 바뀌는 경우가 생긴다.
+위의 코드에서 서로다른 Thread 두개가 한개의 Test 인스턴스 **addCount()** 메서드를 호출한다.  **synchronized** 키워드가 없으면 Test 객체 안의 counter 변수 출력이 순서대로 증가하지않고 바뀌는 경우가 생긴다.
 
 * synchronized 한경
 

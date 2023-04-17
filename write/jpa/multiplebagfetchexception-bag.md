@@ -11,7 +11,7 @@ Caused by: org.hibernate.loader.MultipleBagFetchException: cannot simultaneously
 ```
 {% endcode %}
 
-****
+
 
 **문제 상황은 크게 아래 두개의 상황에서 발생한다.**
 
@@ -277,7 +277,8 @@ Team 하나에 `2개의 Member`, `3개의 Account`, `3개의 Address` 데이터�
 
 Team 을 아래와 같이 조회해보면
 
-<pre class="language-java" data-overflow="wrap" data-line-numbers><code class="lang-java"><strong>Team foundTeam = entityManager.find(Team.class, 1L);</strong></code></pre>
+<pre class="language-java" data-overflow="wrap" data-line-numbers><code class="lang-java"><strong>Team foundTeam = entityManager.find(Team.class, 1L);
+</strong></code></pre>
 
 아래와 같은 쿼리가 날아가는데, Team 에는 `2개의 Member`, `3개의 Account`, `3개의 Address`  의 연관관계가 있기 때문에 18(2 x 3 x 3) 개의 데이터가 Cartesian Product 연산으로 쿼리가 불리어지게된다.
 
