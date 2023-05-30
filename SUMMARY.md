@@ -67,6 +67,7 @@
 
 * [\[아파치 카프카 애플리케이션 프로그래밍\] 개념부터 컨슈머, 프로듀서, 커넥트, 스트림즈까지!](study/undefined/README.md)
   * [1.아파치 카프카의 역사와 미래](study/undefined/1..md)
+* [2. 카프카 기본 개념](study/2..md)
 * [Real MySQL](study/real-mysql/README.md)
   * [11. 쿼리 작성 및 최적화](study/real-mysql/11..md)
   * [8. 인덱스](study/real-mysql/8./README.md)
