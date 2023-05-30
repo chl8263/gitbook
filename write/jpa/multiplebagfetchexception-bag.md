@@ -86,10 +86,7 @@ List<Team> team = entityManager.createQuery(
 
 Bag(Multiset)은 Set과 같이 순서가 없고, List와 같이 중복을 허용하는 자료구조이다.
 
-|     Bag    |    Lsit    |      Set      |
-| :--------: | :--------: | :-----------: |
-|  unordered |   ordered  |   unordered   |
-| duplicates | duplicates | no duplicates |
+<table><thead><tr><th align="center">Bag</th><th align="center">Lsit</th><th width="235" align="center">Set</th></tr></thead><tbody><tr><td align="center">unordered</td><td align="center">ordered</td><td align="center">unordered</td></tr><tr><td align="center">duplicates</td><td align="center">duplicates</td><td align="center">no duplicates</td></tr></tbody></table>
 
 | 컬렉션 인터페이스           | 내장 컬렉션         | 중복 허용 | 순서 보관 |
 | ------------------- | -------------- | ----- | ----- |
