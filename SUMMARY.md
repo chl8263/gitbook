@@ -24,7 +24,9 @@
   * [Untitled](write/docker/untitled.md)
 * [kubernetes](write/kubernetes/README.md)
   * [Page 2](write/kubernetes/page-2.md)
-* [Kafka](write/kafka.md)
+* [Kafka](write/kafka/README.md)
+  * [아파치 카프카란?](write/kafka/undefined.md)
+  * [카프카 기본 개념](write/kafka/undefined-1.md)
 * [JPA](write/jpa/README.md)
   * [MultipleBagFetchException 과 Bag](write/jpa/multiplebagfetchexception-bag.md)
   * [즉시, 지연 로딩과 N+1](write/jpa/n+1.md)
@@ -65,9 +67,6 @@
 
 ## STUDY
 
-* [\[아파치 카프카 애플리케이션 프로그래밍\] 개념부터 컨슈머, 프로듀서, 커넥트, 스트림즈까지!](study/undefined/README.md)
-  * [1.아파치 카프카의 역사와 미래](study/undefined/1..md)
-  * [2. 카프카 기본 개념](study/undefined/2..md)
 * [Real MySQL](study/real-mysql/README.md)
   * [11. 쿼리 작성 및 최적화](study/real-mysql/11..md)
   * [8. 인덱스](study/real-mysql/8./README.md)
@@ -148,7 +147,7 @@
   * [ch9. 제네릭스](study/kotlin-in-action/ch9..md)
   * [ch10. 어노테이션과 리플렉션](study/kotlin-in-action/ch10..md)
   * [ch11. DSL 만들기](study/kotlin-in-action/ch11.-dsl.md)
-* [오브젝트](<study/undefined/README (1).md>)
+* [오브젝트](study/undefined/README.md)
   * [ch1. 객체, 설계](study/undefined/ch01..md)
   * [ch2. 객체지향 프로그래밍](study/undefined/ch02..md)
   * [ch3. 역할, 책임, 협력](study/undefined/ch03..md)
