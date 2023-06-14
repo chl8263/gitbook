@@ -27,6 +27,7 @@
 * [Kafka](write/kafka/README.md)
   * [아파치 카프카란?](write/kafka/undefined.md)
   * [카프카 기본 개념](write/kafka/undefined-1.md)
+  * [카프카 실행하기](write/kafka/undefined-2.md)
 * [JPA](write/jpa/README.md)
   * [MultipleBagFetchException 과 Bag](write/jpa/multiplebagfetchexception-bag.md)
   * [즉시, 지연 로딩과 N+1](write/jpa/n+1.md)
