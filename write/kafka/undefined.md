@@ -4,7 +4,7 @@
 
 kafka 는 각각의 래플리케이션끼리 연결하여 데이터를 처리하는 것이 아니라 한 곳에 모아 처리할  수 있도록 중앙집중화했다.
 
-<figure><img src="../../.gitbook/assets/image.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (3).png" alt=""><figcaption></figcaption></figure>
 
 ## 아파치 카프카의 기본 구조
 

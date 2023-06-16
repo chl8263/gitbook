@@ -55,7 +55,7 @@ Spring 은 이를 Wrapping 해서 `org.springframework.aop.framework` package �
 
 &#x20;`org.springframework.data.repository.core.support` package 의 `RepositoryFactorySupport`  가 `ProxyFactory` 를 이용하여 해당 작업을 진행한다.
 
-<figure><img src="../../.gitbook/assets/image (3) (1).png" alt=""><figcaption><p><code>RepositoryFactorySupport.class</code> 의 패키지 스캔부</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (3) (1) (2).png" alt=""><figcaption><p><code>RepositoryFactorySupport.class</code> 의 패키지 스캔부</p></figcaption></figure>
 
 ## 그렇다면 동작 원리는..?
 

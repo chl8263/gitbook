@@ -23,7 +23,7 @@
 * [Docker](write/docker/README.md)
   * [Untitled](write/docker/untitled.md)
 * [kubernetes](write/kubernetes/README.md)
-  * [Page 2](write/kubernetes/page-2.md)
+  * [rocky linux 에 kubernetes 설치](write/kubernetes/rocky-linux-kubernetes.md)
 * [Kafka](write/kafka/README.md)
   * [아파치 카프카란?](write/kafka/undefined.md)
   * [카프카 기본 개념](write/kafka/undefined-1.md)

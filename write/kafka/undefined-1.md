@@ -89,7 +89,7 @@
 * 하나의 파티션에는 하나의 컨슈머만 할당될 수 있다.
 * 컨슈머의 개수와 파티션늘개수도려늘려스케일 아웃 하는 것이  제이 좋은 방
 
-<figure><img src="../../.gitbook/assets/image (44) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (44).png" alt=""><figcaption></figcaption></figure>
 
 ## 레코드
 
