@@ -28,6 +28,8 @@
   * [아파치 카프카란?](write/kafka/undefined.md)
   * [카프카 기본 개념](write/kafka/undefined-1.md)
   * [카프카 실행하기](write/kafka/undefined-2.md)
+* [DDD](write/ddd/README.md)
+  * [\[도메인 주도 개발 시작하기\] 정리된 사이트](write/ddd/undefined.md)
 * [JPA](write/jpa/README.md)
   * [MultipleBagFetchException 과 Bag](write/jpa/multiplebagfetchexception-bag.md)
   * [즉시, 지연 로딩과 N+1](write/jpa/n+1.md)
