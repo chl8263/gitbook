@@ -5,6 +5,7 @@
 ## write
 
 * [DB](write/db/README.md)
+  * [DB 메모리 누수](write/db/db.md)
   * [MySQ 실행계획 분석방법](write/db/mysq.md)
   * [FULLTEXT(전문검색) Index 란?](write/db/fulltext-index.md)
 * [Maven](write/maven.md)
@@ -37,7 +38,6 @@
   * [왜 save 후 update 할 때 query가 두번 실행되는가?](write/jpa/save-update-query.md)
 * [Spring JPA](write/spring/spring-jpa/README.md)
   * [Data source 분산 트랜잭션](write/spring/spring-jpa/data-source.md)
-  * [DB 메모리 누수](write/spring/spring-jpa/db.md)
   * [spring data jpa 동작방식과 Dynamic Proxy, AOP](write/spring-jpa/spring-data-jpa-dynamic-proxy-aop.md)
 * [Spring](write/spring/README.md)
   * [Springboot + Koltin 로그설정](write/spring/springboot-+-koltin.md)
