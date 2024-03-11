@@ -4,8 +4,9 @@
 
 ## write
 
+* [DDD](write/ddd.md)
 * [DB](write/db/README.md)
-  * [DB 메모리 누수](write/db/db.md)
+  * [DB 메모리 누수](write/spring/spring-jpa/db.md)
   * [MySQ 실행계획 분석방법](write/db/mysq.md)
   * [FULLTEXT(전문검색) Index 란?](write/db/fulltext-index.md)
 * [Maven](write/maven.md)
@@ -21,6 +22,8 @@
   * [Consumer, producer, blocking queue](write/java/consumer-producer-blocking-queue.md)
   * [volatile, atomic](write/java/volatile-atomic.md)
   * [Synchronized 정리](write/java/synchronized.md)
+  * [Java 자료형과 크기](write/java/java.md)
+  * [문자열 풀(String Pool)](write/java/string-pool.md)
 * [Docker](write/docker/README.md)
   * [Untitled](write/docker/untitled.md)
 * [kubernetes](write/kubernetes/README.md)
@@ -29,8 +32,8 @@
   * [아파치 카프카란?](write/kafka/undefined.md)
   * [카프카 기본 개념](write/kafka/undefined-1.md)
   * [카프카 실행하기](write/kafka/undefined-2.md)
-* [DDD](write/ddd/README.md)
-  * [\[도메인 주도 개발 시작하기\] 정리된 사이트](write/ddd/undefined.md)
+* [DDD](write/ddd-1/README.md)
+  * [\[도메인 주도 개발 시작하기\] 정리된 사이트](write/ddd-1/undefined.md)
 * [JPA](write/jpa/README.md)
   * [MultipleBagFetchException 과 Bag](write/jpa/multiplebagfetchexception-bag.md)
   * [즉시, 지연 로딩과 N+1](write/jpa/n+1.md)
