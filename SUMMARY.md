@@ -7,6 +7,7 @@
 * [DDD](write/ddd.md)
 * [OOP](write/oop/README.md)
   * [OOP 의 7대 개념](write/oop/oop-7.md)
+  * [상속 vs 합성](write/oop/vs.md)
 * [DB](write/db/README.md)
   * [DB 메모리 누수](write/spring/spring-jpa/db.md)
   * [MySQ 실행계획 분석방법](write/db/mysq.md)
