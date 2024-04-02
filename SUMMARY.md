@@ -6,7 +6,8 @@
 
 * [DDD](write/ddd.md)
 * [OOP](write/oop/README.md)
-  * [의존성과 결합도](write/oop/undefined.md)
+  * [예외](write/oop/undefined.md)
+  * [의존성과 결합도](write/oop/undefined-1.md)
   * [OOP 의 7대 개념](write/oop/oop-7.md)
   * [상속 vs 합성](write/oop/vs.md)
 * [DB](write/db/README.md)
