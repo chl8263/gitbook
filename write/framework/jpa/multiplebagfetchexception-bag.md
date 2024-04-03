@@ -331,7 +331,7 @@ Set Collection 으로 이루어진 Account Entity -> 3개&#x20;
 
 Bag Collection 으로 이루어진 Address Entity -> 18개&#x20;
 
-<figure><img src="../../.gitbook/assets/image (11) (2).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (11) (2).png" alt=""><figcaption></figcaption></figure>
 
 Set Collection 인 것들은 중복을 제거하기 때문에 Entity에 해당하는 테이블 Row 갯수만큼 가져오지만 Bag Collection 인 것은 쿼리의 Row 수 만큼 반환하는 것을 볼 수있다.
 

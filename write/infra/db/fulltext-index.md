@@ -6,7 +6,7 @@
 
 어떤  어플리케이션에서 "스노우보드 잘 타는법'' 과  같은 특정 단어 혹은  문장을검색한다고 해보자.
 
-<figure><img src="../../.gitbook/assets/image (5) (3).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (5) (3).png" alt=""><figcaption></figcaption></figure>
 
 DB 에 `like` 구문을 이용해서 검색을 진행할 것이다.&#x20;
 
@@ -81,7 +81,7 @@ id가 2인 row와 3인 row는 결과에 포함되지 않았다. 그 이유는 Fu
 
 이때 N-gram 을 사용한다.
 
-### 2. N-gram <a href="#2-n-gram" id="2-n-gram"></a>
+### 2. N-gram <a href="#id-2-n-gram" id="id-2-n-gram"></a>
 
 > N-gram은 통계학 기반의 언어 모델 중 하나이다. N-gram 언어 모델은 이처럼 다음 단어를 예측할 때 문장 내 모든 단어를 고려하지 않고 특정 단어의 개수`(N)`만 고려한다. 즉, N-gram은 `N`개의 연속적인 단어의 나열을 하나의 묶음(=token)으로 간주한다.
 

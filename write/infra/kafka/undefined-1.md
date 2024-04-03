@@ -4,7 +4,7 @@
 
 커넥트, 프로튜서, 컨슈머, 스트림즈 는 kafka 가 제공하는 공식 java 로 구성된 라이브러리 이다.
 
-<figure><img src="../../.gitbook/assets/image (6).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (6).png" alt=""><figcaption></figcaption></figure>
 
 프로듀서 : 데이터 전송
 
@@ -27,7 +27,7 @@
 
 주키퍼는 아래와 같이네임서비스를 통해 하나의 서버만 서비스를 수행하지 않고 알맞게 분산해 각각의 클라이언트들이 동시 작업할 수 있도록 지원하여 부하를 분산시킨다. 또한 락(lock)을 통해 하나의 서버에서 처리된 결과가 또 다른 서버들과 동기화할 수 있도록 한다.
 
-<figure><img src="../../.gitbook/assets/image (46).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (46).png" alt=""><figcaption></figcaption></figure>
 
 **\[네이버 지식백과]** [Oozie / Hcatalog / Zookeeper](https://terms.naver.com/entry.naver?docId=3386319) (국립중앙과학관 - 빅데이터)
 
@@ -80,7 +80,7 @@
 
 파티션이 5개인 토픽을 생성했을 경우 아래와 같이 0번 브로커로부터 시작하여 round-robin 방식으로 리더파티션들이 생성된다. 카프카 클라이언트는 리더 파티션이 있는 브로커와 통신하여 데이터를 주고 받으므로 여러 브로커에 골고루 네트워크 통신을 하게 된다.
 
-<figure><img src="../../.gitbook/assets/image (45).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (45).png" alt=""><figcaption></figcaption></figure>
 
 ### 파티션 개수와 컨슈머 개수의 처리량
 
@@ -89,14 +89,14 @@
 * 하나의 파티션에는 하나의 컨슈머만 할당될 수 있다.
 * 컨슈머의 개수와 파티션늘개수도려늘려스케일 아웃 하는 것이  제이 좋은 방
 
-<figure><img src="../../.gitbook/assets/image (44).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (44).png" alt=""><figcaption></figcaption></figure>
 
 ## 레코드
 
 * 레코드는 타임스탬프, 헤더, 메시지 키, 메시지 값, 오프셋으로 구성되어 있다. 프로듀서가 생성한 레코드가 브로커로 전송되면 오프셋과 타임스템프가 지정되어 저장된다.
 * 브로커에 한번 적재된 레코드는 수정할 수 없고 로그 리텐션 기간 또는 용량에 따라서만 삭제됨.
 
-<figure><img src="../../.gitbook/assets/image (43).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (43).png" alt=""><figcaption></figcaption></figure>
 
 * timestamp
   * 브로커 적재 시간 또는 생성 시간으로 설정 가능
@@ -116,4 +116,4 @@
 * 카프카는 어떤 경우에 사용하고 왜? 어디서? 컨슈머의 주체는 뭐지?
 * 파티션과 컨슈머는 왜 1:1 이고 컨슈머는 데이터를 하나의 파티션으로부터 받아서 가공하는 주체? 아니면 디바이스?
 
-{% file src="../../.gitbook/assets/섹션2 카프카 기본 개념 설명.pdf" %}
+{% file src="../../../.gitbook/assets/섹션2 카프카 기본 개념 설명.pdf" %}

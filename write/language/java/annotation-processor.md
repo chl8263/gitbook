@@ -16,7 +16,7 @@ public class Account {
 }
 ```
 
-<figure><img src="../../.gitbook/assets/Screen Shot 2022-10-20 at 7.59.08 PM.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/Screen Shot 2022-10-20 at 7.59.08 PM.png" alt=""><figcaption></figcaption></figure>
 
 build 하위에 java byte 코드를 보면 아래와 같이 마법같이 코드가 생성된다.
 
@@ -163,7 +163,7 @@ AST는 프로그래밍 언어로 작성된 소스 코드의 추상 구문 구조
 
 결국 Lombok 은 아래와 같이 구문분석 단계에서 AST 를 조작하여(setter, getter 같은 코드를 트리에 추가하는 작업 등) 컴파일러 구문분석 다음 단계에 넘기는 일을 진행하게된다.
 
-<figure><img src="../../.gitbook/assets/Screen Shot 2022-10-20 at 8.37.35 PM.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/Screen Shot 2022-10-20 at 8.37.35 PM.png" alt=""><figcaption></figcaption></figure>
 
 이로인해 많은 논란거리를 피할 수는 없었다고한다. 아래와 같이 어떤사람은 "lombok 은 완전히 '핵'이다" 라고 말하는 사람도있다.
 
