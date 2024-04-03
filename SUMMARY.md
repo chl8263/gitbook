@@ -47,8 +47,6 @@
     * [Jenkins war파일 및 Plugin 다운로드 경로](write/infra/jenkins/jenkins-war-plugin.md)
   * [Nginx](write/infra/nginx/README.md)
     * [Nginx 소스 설치 하기](write/infra/nginx/nginx.md)
-    * [Reverse Proxy](write/infra/nginx/reverse-proxy.md)
-    * [SSL termination](write/infra/nginx/ssl-termination.md)
   * [Kafka](write/infra/kafka/README.md)
     * [아파치 카프카란?](write/infra/kafka/undefined.md)
     * [카프카 기본 개념](write/infra/kafka/undefined-1.md)
