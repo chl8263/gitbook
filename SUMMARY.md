@@ -88,6 +88,7 @@
 * [리펙터링](study/undefined/README.md)
   * [1. 리펙터링의 첫 단계](study/undefined/1..md)
   * [2. 리팩터링 원칙](study/undefined/2..md)
+  * [3. 코드에서 나는 악취](study/undefined/3..md)
 * [Real MySQL](study/real-mysql/README.md)
   * [11. 쿼리 작성 및 최적화](study/real-mysql/11..md)
   * [8. 인덱스](study/real-mysql/8./README.md)
