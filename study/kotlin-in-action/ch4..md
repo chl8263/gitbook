@@ -487,10 +487,16 @@ class MyClass {
 ```
 
 ```kotlin
-class MyClass(private var privateMember: Int) {
-    val publicProperty: Int
-        get() = privateMember // error, 가시성 선언을 하지 않았기 때문, private 변수는 바로 접근 불가
+class A private constructor(val name: String) { // 클래스 A의 주 생성자는 private로 접근 제한
+    companion object {
+        fun bar() : A {
+            return A("zero")	//companion object의 bar() 메서드를 통해 private 생성자 접근 가능
+        }
+    }
 }
+var a = A("TEST")	//에러, 주 생성자는 private 접근제한자로 설정되어 호출 불가능
+var b = A.bar() //동반객체의 bar() 메서드를 통해 private 주생성자에 접근이 가능
+출처: https://cn-c.tistory.com/22 [Codename Cathy:티스토리]
 ```
 
 정적 프로퍼티를 정의할 때나 아래와 같이 private 생성자를 이용하여 factory를 구현할 수 있다.
