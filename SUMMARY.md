@@ -57,6 +57,7 @@
     * [카프카 기본 개념](write/infra/kafka/undefined-1.md)
     * [카프카 실행하기](write/infra/kafka/undefined-2.md)
   * [DB](write/infra/db/README.md)
+    * [데이터베이스 인덱스 키의 최대 길이 제한](write/infra/db/undefined.md)
     * [Mysql Collation 불일치](write/infra/db/mysql-collation.md)
     * [DB 메모리 누수](write/infra/db/db.md)
     * [MySQ 실행계획 분석방법](write/infra/db/mysq.md)
