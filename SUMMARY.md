@@ -45,6 +45,7 @@
 * [infra](write/infra/README.md)
   * [cloud](write/infra/cloud/README.md)
     * [Azure](write/infra/cloud/azure/README.md)
+      * [Azure 가상 사설망](write/infra/cloud/azure/azure.md)
       * [NSG란](write/infra/cloud/azure/nsg.md)
   * [kubernetes](write/infra/kubernetes/README.md)
     * [rocky linux 에 kubernetes 설치](write/infra/kubernetes/rocky-linux-kubernetes.md)
