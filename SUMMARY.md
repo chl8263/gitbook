@@ -49,7 +49,7 @@
       * [Azure 가상 사설망](write/infra/cloud/azure/azure.md)
       * [NSG란](write/infra/cloud/azure/nsg.md)
   * [kubernetes](write/infra/kubernetes/README.md)
-    * [서비스계정이란](write/infra/kubernetes/undefined.md)
+    * [서비스계정](write/infra/kubernetes/undefined.md)
     * [Page](write/infra/kubernetes/page.md)
     * [rocky linux 에 kubernetes 설치](write/infra/kubernetes/rocky-linux-kubernetes.md)
   * [Jenkins](write/infra/jenkins/README.md)
