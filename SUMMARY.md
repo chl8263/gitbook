@@ -50,7 +50,7 @@
       * [NSG란](write/infra/cloud/azure/nsg.md)
   * [kubernetes](write/infra/kubernetes/README.md)
     * [서비스계정](write/infra/kubernetes/undefined.md)
-    * [Page](write/infra/kubernetes/page.md)
+    * [개념](write/infra/kubernetes/undefined-1.md)
     * [rocky linux 에 kubernetes 설치](write/infra/kubernetes/rocky-linux-kubernetes.md)
   * [Jenkins](write/infra/jenkins/README.md)
     * [Jenkins war파일 및 Plugin 다운로드 경로](write/infra/jenkins/jenkins-war-plugin.md)
