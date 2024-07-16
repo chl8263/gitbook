@@ -48,6 +48,7 @@
       * [Blob Storage](write/infra/cloud/azure/blob-storage.md)
       * [Azure 가상 사설망](write/infra/cloud/azure/azure.md)
       * [NSG란](write/infra/cloud/azure/nsg.md)
+      * [certification path](write/infra/cloud/azure/certification-path.md)
   * [kubernetes](write/infra/kubernetes/README.md)
     * [서비스계정](write/infra/kubernetes/undefined.md)
     * [개념](write/infra/kubernetes/undefined-1.md)
