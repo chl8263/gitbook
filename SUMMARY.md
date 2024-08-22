@@ -50,6 +50,7 @@
       * [NSG란](write/infra/cloud/azure/nsg.md)
       * [certification path](write/infra/cloud/azure/certification-path.md)
   * [kubernetes](write/infra/kubernetes/README.md)
+    * [MasterNode가 3개로 권장되는 이유](write/infra/kubernetes/masternode-3.md)
     * [서비스계정](write/infra/kubernetes/undefined.md)
     * [개념](write/infra/kubernetes/undefined-1.md)
     * [rocky linux 에 kubernetes 설치](write/infra/kubernetes/rocky-linux-kubernetes.md)
