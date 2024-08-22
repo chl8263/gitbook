@@ -52,6 +52,7 @@
       * [NSG란](write/infra/cloud/azure/nsg.md)
       * [certification path](write/infra/cloud/azure/certification-path.md)
   * [kubernetes](write/infra/kubernetes/README.md)
+    * [ComfigMap vs Secret](write/infra/kubernetes/comfigmap-vs-secret.md)
     * [Application gateway 와 Ingress controller](write/infra/kubernetes/application-gateway-ingress-controller.md)
     * [MasterNode가 3개로 권장되는 이유](write/infra/kubernetes/masternode-3.md)
     * [서비스계정](write/infra/kubernetes/undefined.md)
