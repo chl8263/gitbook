@@ -1,42 +1,39 @@
 ---
 description: >-
-  Azure Kubernetes Service (AKS) 클러스터의 네트워크 아키텍처의 네트워크 흐름과 보안 장치를 통해 요청과 응답이 어떻게
-  전달되는지를 설명한다
+  Azure Kubernetes Service (AKS) 클러스터와 Azure Application Gateway를 활용하여 애플리케이션을
+  배포할 때의 네트워크 흐름을 설명한다
 ---
 
-# AKS 네트워크 보안 flow
+# AKS 네트워크 flow
 
-<figure><img src="../../../../.gitbook/assets/image (48).png" alt=""><figcaption></figcaption></figure>
+&#x20;
 
-## 네트워크 구성 요소
+<figure><img src="../../../../.gitbook/assets/image (49).png" alt=""><figcaption></figcaption></figure>
 
-* **Public Internet (공공 인터넷):** 외부 사용자가 클러스터에 접근하는 출발점
-* **Web Application Firewall (WAF):** AKS 클러스터에 도달하기 전에 트래픽을 필터링하여 웹 애플리케이션을 보호하는 방화벽
-* **Internal Load Balancer (AKS-managed):** 내부 트래픽을 분산시켜 AKS 서비스 간의 로드 밸런싱을 관리
-* **Azure Kubernetes Service (AKS):** 애플리케이션을 실행하는 쿠버네티스 클러스터
-* **Azure Firewall:** 네트워크의 보안을 강화하기 위한 Azure의 관리형 방화벽
-* **VNet Peering:** 두 개의 가상 네트워크(VNet)를 연결하여 서로 간의 트래픽을 허용하는 메커니즘
-* **Hub:** 중앙 보안 및 네트워크 관리가 이루어지는 장소로, Azure Firewall이 배치되어 있다
-* **Spoke:** AKS 클러스터와 관련된 리소스가 배치
+## 네트워크 흐름 및 구성 요소
 
-## 네트워크 흐름
+1. **사용자(User)와 Application Gateway 간의 통신**
+   * 사용자는 인터넷을 통해 애플리케이션에 접근한다
+   * 이 요청은 먼저 **Application Gateway**로 전달된다
+   * Application Gateway는 웹 애플리케이션 방화벽(WAF) 기능을 포함할 수 있으며, HTTPS 요청을 처리한다
+   * SSL/TLS 트래픽을 암호화하여 안전한 연결을 유지합니다. 이 과정에서 인증서가 사용되며, 이 인증서는 Azure Key Vault에서 관리된다
+   * 사용자가 발급받은 인증서 파일(.pfx 또는 .pem 형식)을 Azure Key Vault 로 수동으로 업로드 할 수 있고
+   *   **Key Vault를 통해 자동 발급:** Key Vault는 Azure에서 직접 인증서를 발급받을 수 있는 기능을 제공한다. Azure Key Vault는 Digicert, GlobalSign, Let's Encrypt 등의 인증 기관과 통합되어 있어서 이런 인증서 관련 작업을 단순화 시켜준다
 
-1. **사용자 요청 (Request – User Initiated):**
-   * 사용자는 공공 인터넷을 통해 AKS 클러스터에 요청을 보낸다
-   * 이 요청은 먼저 Web Application Firewall (WAF)을 통해 들어간다
-   * WAF는 트래픽을 검사한 후, 안전하다고 판단되면 트래픽을 내부 로드 밸런서로 전달한다
-   * 내부 로드 밸런서는 요청을 적절한 AKS 노드로 분산시킨다
-2. **사용자 응답 (Response – User Initiated):**
-   * AKS 클러스터에서 응답이 생성되면, 내부 로드 밸런서를 통해 WAF로 다시 전달
-   * WAF는 이 응답을 공공 인터넷으로 전달하여 사용자에게 되돌려 보낸다
-3. **클러스터 시작 요청 (Request – Cluster Initiated):**
-   * AKS 클러스터 내부에서 발생하는 요청(예: 외부 API 호출)은 Azure Firewall을 통해 외부로 나간다
-     * 이 경우 Application gateway 로 나가는게 아니다
-   * 이러한 요청은 VNet Peering을 통해 Hub 네트워크로 이동한 후 Azure Firewall을 거쳐 외부로 전달
-4. **클러스터 응답 (Response – Cluster Initiated):**
-   * 외부에서의 응답은 다시 Azure Firewall을 통해 받아들여지며, VNet Peering을 통해 Spoke의 AKS 클러스터로 전달된다
 
-## 네트워크 보안
+2.  **Application Gateway와 AKS 클러스터 간의 통신:**
 
-* **WAF (Web Application Firewall):** 외부에서 들어오는 HTTP(S) 트래픽을 검사하여 악의적인 요청을 차단힌다
-* **Azure Firewall:** AKS 클러스터와 외부 간의 모든 트래픽을 필터링하고, 인바운드 및 아웃바운드 규칙을 적용하여 보안을 강화.
+    * Application Gateway는 요청을 받아 내부 네트워크를 통해 AKS 클러스터로 전달한다
+    * 이 과정에서도 트래픽은 암호화된 상태를 유지하며, 인그레스 컨트롤러가 클러스터 내부에서 트래픽을 관리한다
+
+
+3.  **Ingress Controller와 Workload 간의 통신:**
+
+    * **Ingress Controller**는 AKS 클러스터 내에서 실행되며, 외부 요청을 적절한 서비스나 파드로 라우팅하는 역할을 수행한다
+    * 클러스터 내부의 워크로드(애플리케이션 컨테이너)로 트래픽을 전달, 이때도 보안이 유지된다
+
+
+4. **Azure Key Vault와의 연계:**
+   * 인증서 관리가 중요한 핵심인데, **Azure Key Vault**는 SSL/TLS 인증서를 안전하게 저장하고 관리하는 역할을 한다.
+   * Application Gateway는 Key Vault에서 필요한 인증서를 가져와 HTTPS 연결을 설정하는 데 사용하고 다양한 편의성을 제공한다.
+   * `위 이미지에서 delta.contoso.com` 및 `*.aks-ingress.contoso.com` 도메인에 대한 인증서가 Key Vault에 저장되어 있는 것을 볼 수 있다
