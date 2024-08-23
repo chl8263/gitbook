@@ -1,6 +1,8 @@
-# 개념
+# 기본구조
 
 <figure><img src="../../../.gitbook/assets/image (47).png" alt=""><figcaption></figcaption></figure>
+
+<figure><img src="../../../.gitbook/assets/Screenshot 2024-08-23 at 11.46.38 AM.png" alt=""><figcaption></figcaption></figure>
 
 ### 1. 마스터 노드 (Master Node)
 
@@ -41,12 +43,8 @@
 * **Secret:** 암호, 토큰 등의 민감한 데이터를 저장하고 안전하게 파드에 전달하는 데 사용됩니다.
 * kubeadm
   * 쿠버네티스에서 공식 제공하는 클러스터 생성/관리 도구
-*   CNI
-
-    * container간 통신을 지원하는것
-    * Pod network이라고도 부름
-    * &#x20;ex) 플라넬, 칼리코, 위브넷 등 많은 플레그인들이 있다
-    * 반드시 있어야 pod끼리 통신이 가능하므로 필수
-
-
-*
+* CNI
+  * container간 통신을 지원하는것
+  * Pod network이라고도 부름
+  * &#x20;ex) 플라넬, 칼리코, 위브넷 등 많은 플레그인들이 있다
+  * 반드시 있어야 pod끼리 통신이 가능하므로 필수
