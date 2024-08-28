@@ -52,6 +52,7 @@
       * [NSG란](write/infra/cloud/azure/nsg.md)
       * [certification path](write/infra/cloud/azure/certification-path.md)
   * [kubernetes](write/infra/kubernetes/README.md)
+    * [Service란?](write/infra/kubernetes/service.md)
     * [배포전략](write/infra/kubernetes/undefined.md)
     * [PV와 PVC란?](write/infra/kubernetes/pv-pvc.md)
     * [ComfigMap vs Secret](write/infra/kubernetes/comfigmap-vs-secret.md)

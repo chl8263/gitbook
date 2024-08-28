@@ -6,7 +6,7 @@ description: >-
 
 # AKS 네트워크 보안 flow
 
-<figure><img src="../../../../.gitbook/assets/image (48).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/image (48) (1).png" alt=""><figcaption></figcaption></figure>
 
 ## 네트워크 구성 요소
 
