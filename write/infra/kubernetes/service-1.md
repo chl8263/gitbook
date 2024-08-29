@@ -6,7 +6,7 @@ description: 쿠버네티스(Kubernetes) 클러스터의 네트워크와 서비�
 
 <figure><img src="../../../.gitbook/assets/image.png" alt=""><figcaption></figcaption></figure>
 
-#### 1. **네트워크 구성**
+### 1. **네트워크 구성**
 
 * **내부 인프라 환경**:
   * 내부 서버 및 DNS 서버가 포함된 사설 네트워크가 있다.
@@ -21,13 +21,13 @@ description: 쿠버네티스(Kubernetes) 클러스터의 네트워크와 서비�
   * `LoadBalancer`(192.168.56.60)를 통해 외부로부터의 트래픽이 관리된다
   * 위 그림에서는 LoadBalancer 타입의 service 가 ip 를 할당받아 외부로 부터 들어오는 트래픽을 쿠버네티스 노드들에게 전달한다
 
-#### 2. **서비스 디스커버리와 네트워킹**
+### 2. **서비스 디스커버리와 네트워킹**
 
 * **Service Network (10.96.0.0/12)**: 쿠버네티스 클러스터 내의 모든 서비스들이 이 네트워크를 통해 통신한다.
 * **Pod Network (20.96.0.0/12)**: 각각의 Pod가 이 네트워크를 통해 IP 주소를 할당받아 통신한다.
 * **CoreDNS**: 클러스터 내부에서 DNS 서비스를 제공, 각 서비스의 DNS 이름을 관리하고, 외부 DNS 요청도 처리한다.
 
-#### 3. **Service 타입**
+### 3. **Service 타입**
 
 * **ClusterIP**: 쿠버네티스 클러스터 내부에서만 접근 가능한 기본 서비스 타입이다
   * `api-tester`(10.96.0.1) 서비스는 ClusterIP 타입으로, 내부 통신에 사용된다.
@@ -40,18 +40,18 @@ description: 쿠버네티스(Kubernetes) 클러스터의 네트워크와 서비�
 * **Headless Service**: ClusterIP 없이 Pod에 직접 DNS 이름을 할당하여 각각의 Pod를 직접 접근할 수 있게 한다.
   * 이 그림에서는 `db`가 StatefulSet으로 배포된 애플리케이션으로, Headless Service로 구성되어 있다.
 
-#### 4. **StatefulSet 및 Headless Service**
+### 4. **StatefulSet 및 Headless Service**
 
 * **StatefulSet**: 상태를 가지는 애플리케이션을 관리하며, 각 Pod는 고유한 정체성을 가진다
 * **Headless Service**: StatefulSet에서 사용하는 서비스로, 각 Pod에 고유한 IP를 할당한다
   * `api-tester2` 및 `db` 서비스가 여기에 해당됨
 
-#### 5. **로드 밸런싱과 IPTABLES**
+### 5. **로드 밸런싱과 IPTABLES**
 
 * **kube-proxy**: 쿠버네티스의 네트워크 트래픽을 관리하며, iptables를 사용하여 트래픽을 라우팅한다.
 * **IPTABLES**: 네트워크 트래픽을 제어하고, 각 서비스로의 연결을 관리한다
 
-#### 6. **서비스 퍼블리싱**
+### 6. **서비스 퍼블리싱**
 
 * 외부에서 내부 서비스로 접근하려면 LoadBalancer를 통해 연결됩니다. 그림에서는 192.168.56.60이 이 역할을 수행하고 있다.
 * 보안 포트를 통해 외부 사용자가 내부 서비스에 접근할 수 있다.
