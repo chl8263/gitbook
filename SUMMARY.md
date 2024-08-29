@@ -52,7 +52,7 @@
       * [NSG란](write/infra/cloud/azure/nsg.md)
       * [certification path](write/infra/cloud/azure/certification-path.md)
   * [kubernetes](write/infra/kubernetes/README.md)
-    * [Page](write/infra/kubernetes/page.md)
+    * [Ingress란?](write/infra/kubernetes/ingress.md)
     * [Service의 네트워크구조](write/infra/kubernetes/service.md)
     * [Service란?](write/infra/kubernetes/service-1.md)
     * [배포전략](write/infra/kubernetes/undefined.md)
