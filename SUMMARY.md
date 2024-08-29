@@ -62,6 +62,7 @@
     * [Service란?](write/infra/kubernetes/service.md)
     * [Service의 네트워크구조](write/infra/kubernetes/service-1.md)
     * [Ingress란?](write/infra/kubernetes/page.md)
+    * [Ingress TCL 적용및 관리](write/infra/kubernetes/ingress-tcl.md)
   * [Jenkins](write/infra/jenkins/README.md)
     * [Jenkins war파일 및 Plugin 다운로드 경로](write/infra/jenkins/jenkins-war-plugin.md)
   * [Nginx](write/infra/nginx/README.md)
