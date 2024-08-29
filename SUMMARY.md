@@ -64,6 +64,7 @@
     * [Ingress란?](write/infra/kubernetes/page.md)
     * [Ingress TCL 적용및 Nginx 설정](write/infra/kubernetes/ingress-tcl-nginx.md)
     * [세션 어피니티와 트래픽 폴리쉬](write/infra/kubernetes/undefined-4.md)
+    * [Deploy와 DaemonSet의 차이](write/infra/kubernetes/deploy-daemonset.md)
   * [Jenkins](write/infra/jenkins/README.md)
     * [Jenkins war파일 및 Plugin 다운로드 경로](write/infra/jenkins/jenkins-war-plugin.md)
   * [Nginx](write/infra/nginx/README.md)
