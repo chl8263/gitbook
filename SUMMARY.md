@@ -58,6 +58,7 @@
     * [MasterNode가 3개로 권장되는 이유](write/infra/kubernetes/masternode-3.md)
     * [ComfigMap vs Secret](write/infra/kubernetes/comfigmap-vs-secret.md)
     * [PV와 PVC란?](write/infra/kubernetes/pv-pvc.md)
+    * [CI/CD 전략](write/infra/kubernetes/ci-cd.md)
     * [k8s 배포전략](write/infra/kubernetes/k8s.md)
     * [Service란?](write/infra/kubernetes/service.md)
     * [Service의 네트워크구조](write/infra/kubernetes/service-1.md)
