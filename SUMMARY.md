@@ -1,6 +1,6 @@
 # Table of contents
 
-* [Ewan's gitbook](README.md)
+* [Ewan's develop record](README.md)
 
 ## write
 
