@@ -67,6 +67,7 @@
     * [Session Affinity와 Traffic Policy](write/infra/kubernetes/session-affinity-traffic-policy.md)
     * [Deploy와 DaemonSet의 차이 및 기타 배포형태](write/infra/kubernetes/deploy-daemonset.md)
     * [ImagePullPolicy 를 확인하자](write/infra/kubernetes/imagepullpolicy.md)
+    * [GitLab ArgoCD 연동](write/infra/kubernetes/gitlab-argocd.md)
   * [Jenkins](write/infra/jenkins/README.md)
     * [Jenkins war파일 및 Plugin 다운로드 경로](write/infra/jenkins/jenkins-war-plugin.md)
   * [Nginx](write/infra/nginx/README.md)
