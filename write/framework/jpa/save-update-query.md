@@ -55,7 +55,7 @@ entity manager 의 session 내부적으로 persistenceContext 의 entityEntryCon
 
 <figure><img src="../../../.gitbook/assets/image (26).png" alt=""><figcaption></figcaption></figure>
 
-<figure><img src="../../../.gitbook/assets/image (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 entityEntryContext 의 ManagedEntity 들은 아래 그림과 같이 처음 load 된 상태(아래 그림의 loadedState) 의 Entity 의 ID 를 제외한 맴버 값을 가지고 있다.
 

@@ -91,3 +91,72 @@ gitlab.somaz.link ssh-ed25519 AAAAC3...
 
 <figure><img src="../../../.gitbook/assets/Screenshot 2024-09-12 at 9.54.04 AM.png" alt=""><figcaption></figcaption></figure>
 
+## 4. Application 설정
+
+* Application - new app 을 눌러 화면 진입
+*
+
+    <figure><img src="../../../.gitbook/assets/image.png" alt=""><figcaption></figcaption></figure>
+
+
+*
+
+    <figure><img src="../../../.gitbook/assets/image (1).png" alt=""><figcaption></figcaption></figure>
+
+#### 1. General 설정:
+
+* Application Name: 배포할 애플리케이션의 이름을 지정
+* Project: 애플리케이션이 속할 프로젝트를 선택 (기본값은 `default`).
+* Sync Policy: 자동 동기화를 설정할지, 수동으로 할지를 결정
+* SYNC OPTIONS
+  * SKIP SCHEMA VALIDATION : 매니패스트에 대한 yaml 스키마 유효성 검사를 건너뛰고 배포 (kubectl apply --validate=false)
+  * PRUNE LAST : 동기화 작업이 끝난 이후에 Prune(git에 없는 리소스를 제거하는 작업)를 동작시킴
+  * RESPECT IGNORE DIFFERENCES : 동기화 상태에서 특정 상태의 필드를 무시하도록 함
+  * AUTO-CREATE NAMESPACE : 클러스터에 네임스페이스가 없을 시 argocd에 입력한 이름으로 자동 생성
+  * APPLY OUT OF SYNC ONLY : 현재 동기화 상태가 아닌 리소스만 배포
+  * SERVER-SIDE APPLY : 쿠버네티스 서버에서 제공하는 Server-side Apply API 기능 활성화 (레퍼런스 참조)
+* PRUNE PROPAGATION POLICY ​(레퍼런스 참조)
+  * foreground : 부모(소유자, ex. deployment) 자원을 먼저 삭제함
+  * background : 자식(종속자, ex. pod) 자원을 먼저 삭제함
+  * orphan : 고아(소유자는 삭제됐지만, 종속자가 삭제되지 않은 경우) 자원을 삭제함
+
+
+
+#### 2. Sorce 설정:
+
+* Repository URL: GitLab 리포지토리의 URL을 입력
+
+예: https://gitlab.com/your-username/your-repo.git
+
+* Revision: `HEAD` 또는 특정 Git 브랜치(예: `main` 혹은 `master`)를 입력
+* Path: GitLab 리포지토리 내 Helm 차트가 위치한 경로를 입력. 예를 들어, 차트가 `helm/` 디렉토리 안에 있다면 `helm`을 입력
+
+
+
+#### 3.Destination 설정:
+
+* Cluster URL: 애플리케이션을 배포할 Kubernetes 클러스터의 URL이다. 기본적으로 [https://kubernetes.default.svc/](https://kubernetes.default.svc/)가 사용
+* Namespace: 애플리케이션이 배포될 네임스페이스를 입력. (예: `default` 혹은 원하는 네임스페이스
+
+
+
+#### 4. Application 생성 후 배포:
+
+* 모든 설정을 완료한 후 "Create" 버튼을 눌러 애플리케이션을 생성.
+* 생성된 후, ArgoCD UI의 애플리케이션 목록에서 새로 생성된 애플리케이션을 선택하면, `Sync` 버튼을 눌러 수동으로 동기화를 하거나 자동으로 배포되도록 설정한 경우 ArgoCD가 이를 처리한다\
+
+
+#### 5. ArgoCD에서 배포 상태 확인:
+
+* 애플리케이션이 생성되면 ArgoCD UI에서 해당 애플리케이션의 상태를 실시간으로 모니터링할 수 있다.
+* Sync 상태, Health 상태 등이 표시되며, 문제가 발생하면 UI에서 직접 문제를 해결할 수 있다.
+
+
+
+#### 6. Webhook 설정 (Optional)
+
+* GitLab에서 코드 변경 사항이 발생했을 때 자동으로 ArgoCD가 이를 감지하게 하려면 GitLab Webhook을 설정할 수 있다. 이를 통해 GitLab에서의 푸시나 머지 요청 시 자동으로 배포를 트리거할 수 있다.
+* GitLab Webhook 설정:
+* GitLab 리포지토리의 Settings > Webhooks에서 새로운 Webhook을 추가
+* Webhook URL은 ArgoCD의 `https://<argocd-server>/api/webhook` 형식으로 설정
+* 필요한 이벤트를 선택하고 Webhook을 저장

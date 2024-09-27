@@ -4,7 +4,7 @@
 
 비스는 Pod의 생명 주기와 독립적으로 동작하며, 이를 통해 여러 Pod에 안정적인 네트워크 연결을 제공한다.
 
-<figure><img src="../../../.gitbook/assets/image (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 ### 서비스의 주요 개념
 

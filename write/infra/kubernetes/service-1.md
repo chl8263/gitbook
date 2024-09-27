@@ -4,7 +4,7 @@ description: 쿠버네티스(Kubernetes) 클러스터의 네트워크와 서비�
 
 # Service의 네트워크구조
 
-<figure><img src="../../../.gitbook/assets/image.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (2).png" alt=""><figcaption></figcaption></figure>
 
 ### 1. **네트워크 구성**
 
