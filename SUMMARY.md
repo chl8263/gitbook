@@ -50,6 +50,7 @@
     * [Azure 가상 사설망](write/infra/azure/azure.md)
     * [NSG란](write/infra/azure/nsg.md)
     * [certification path](write/infra/azure/certification-path.md)
+    * [AGIC의 Url & Rewrite](write/infra/azure/agic-url-and-rewrite.md)
   * [kubernetes](write/infra/kubernetes/README.md)
     * [rocky linux 에 kubernetes 설치](write/infra/kubernetes/rocky-linux-kubernetes.md)
     * [기본구조](write/infra/kubernetes/undefined.md)
