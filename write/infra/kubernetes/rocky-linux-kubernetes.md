@@ -171,7 +171,7 @@ or
 sudo nano /etc/fstab
 ```
 
-Now turn off the SWAP on the current session using the below command. Then, verify the SWAP is off using the "_free -_m" command. You should see the SWAP has "**0**" values, which means it's now disabled.
+Now turn off the SWAP on the current session using the below command. Then, verify the SWAP is off using the "_free -_&#x6D;" command. You should see the SWAP has "**0**" values, which means it's now disabled.
 
 ```
 sudo swapoff -a
@@ -184,7 +184,7 @@ To set up Kubernetes Cluster, you must install the container runtime on all serv
 
 In this example, we will use the "**containerd**" as the container for our Kubernetes deployment. So, you will install containerd on all of the Kubernetes nodes. And there are multiple ways to install containerd, the easiest way is by using pre-built binary packages provided by the Docker repository.
 
-Before adding the repository, run the DNF command below to install additional tools "_dnf-util_s".
+Before adding the repository, run the DNF command below to install additional tools "_dnf-uti&#x6C;_&#x73;".
 
 ```
 sudo dnf install dnf-utils

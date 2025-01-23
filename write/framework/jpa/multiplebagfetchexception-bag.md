@@ -73,11 +73,11 @@ List<Team> team = entityManager.createQuery(
 해당 에러는 왜 나는것이며 문제 상황에서 발생하는 `MultipleBagFetchException` 의 Bag 이란 무엇일까?
 
 > A generalization of the notion of a set is that of a multiset or bag, which is similar to a set but allows repeated (“equal”) values (duplicates).\
-> [https://en.wikipedia.org/wiki/Set\_(abstract\_data\_type)#Multiset](https://en.wikipedia.org/wiki/Set\_\(abstract\_data\_type\)#Multiset)
+> [https://en.wikipedia.org/wiki/Set\_(abstract\_data\_type)#Multiset](https://en.wikipedia.org/wiki/Set_\(abstract_data_type\)#Multiset)
 
 > A Bag is a java collection that stores elements without caring about the sequencing, but allow duplicate elements in the list.\
 > A bag is a random grouping of the objects in the list.\
-> [https://en.wikipedia.org/wiki/Set\_(abstract\_data\_type)#Multiset](https://en.wikipedia.org/wiki/Set\_\(abstract\_data\_type\)#Multiset)
+> [https://en.wikipedia.org/wiki/Set\_(abstract\_data\_type)#Multiset](https://en.wikipedia.org/wiki/Set_\(abstract_data_type\)#Multiset)
 
 > A is an unordered collection, which can contain duplicated elements.\
 > That means if you persist a bag with some order of elements, you cannot expect the same order retains when the collection is retrieved.\
@@ -107,7 +107,7 @@ Jpa에서 연관관계를 나타낼 때 Bag, List, Set은 어떤 경우에 사�
 * **Set**
   * HashSet으로 초기화 중복을 허용하지 않으므로 엔티티를 추가할때 비교해야 한다. 엔티티를 추가할 때 지연로딩된 컬렉션을 초기화한다.
   * Many to Many 일 때 유리하다. (하지만 회피 전략으로 사용하지 않)
-*   **List (**순서가 있는 특수 컬렉션**)**
+*   **List (**&#xC21C;서가 있는 특수 컬렉&#xC158;**)**
 
     {% code overflow="wrap" lineNumbers="true" %}
     ```java

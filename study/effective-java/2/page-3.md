@@ -1,6 +1,6 @@
 # #3. private 생성자나 열거 타입으로 싱글턴임을 보증하라
 
-오직 한 인스턴스만 만드는 클래스를 _싱글톤_이라 부른다. 보통 함수 같은 Stateless 객체([아이템 24](https://github.com/keesun/study/blob/master/effective-java/item24.md)) 또는 본질적으로 유일한 시스템 컴포넌트를 그렇게 만든다.
+오직 한 인스턴스만 만드는 클래스를 _싱글&#xD1A4;_&#xC774;라 부른다. 보통 함수 같은 Stateless 객체([아이템 24](https://github.com/keesun/study/blob/master/effective-java/item24.md)) 또는 본질적으로 유일한 시스템 컴포넌트를 그렇게 만든다.
 
 **싱글톤을 사용하는 클라이언트 코드를 테스트 하는게 어렵다.** 싱글톤이 인터페이스를 구현한게 아니라면 mock으로 교체하는게 어렵기 때문이다.
 

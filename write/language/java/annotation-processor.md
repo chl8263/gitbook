@@ -92,9 +92,9 @@ public class Account {
 
 > AST
 >
-> [컴퓨터 과학](https://ko.wikipedia.org/wiki/%EC%BB%B4%ED%93%A8%ED%84%B0\_%EA%B3%BC%ED%95%99)에서 **추상 구문 트리**(abstract syntax tree, AST), 또는 간단히 **구문 트리**(syntax tree)는 [프로그래밍 언어](https://ko.wikipedia.org/wiki/%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D\_%EC%96%B8%EC%96%B4)로 작성된 [소스 코드](https://ko.wikipedia.org/wiki/%EC%86%8C%EC%8A%A4\_%EC%BD%94%EB%93%9C)의 추상 [구문](https://ko.wikipedia.org/wiki/%ED%86%B5%EC%82%AC%EB%A1%A0) 구조의 [트리](https://ko.wikipedia.org/wiki/%ED%8A%B8%EB%A6%AC)이다. 이 트리의 각 노드는 소스 코드에서 발생되는 구조를 나타낸다. 구문이 추상적이라는 의미는 실제 구문에서 나타나는 모든 세세한 정보를 나타내지는 않는다는 것을 의미한다.
+> [컴퓨터 과학](https://ko.wikipedia.org/wiki/%EC%BB%B4%ED%93%A8%ED%84%B0_%EA%B3%BC%ED%95%99)에서 **추상 구문 트리**(abstract syntax tree, AST), 또는 간단히 **구문 트리**(syntax tree)는 [프로그래밍 언어](https://ko.wikipedia.org/wiki/%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D_%EC%96%B8%EC%96%B4)로 작성된 [소스 코드](https://ko.wikipedia.org/wiki/%EC%86%8C%EC%8A%A4_%EC%BD%94%EB%93%9C)의 추상 [구문](https://ko.wikipedia.org/wiki/%ED%86%B5%EC%82%AC%EB%A1%A0) 구조의 [트리](https://ko.wikipedia.org/wiki/%ED%8A%B8%EB%A6%AC)이다. 이 트리의 각 노드는 소스 코드에서 발생되는 구조를 나타낸다. 구문이 추상적이라는 의미는 실제 구문에서 나타나는 모든 세세한 정보를 나타내지는 않는다는 것을 의미한다.
 
-> 추상 구문 트리는 [컴파일러](https://ko.wikipedia.org/wiki/%EC%BB%B4%ED%8C%8C%EC%9D%BC%EB%9F%AC)에 널리 사용되는 [자료 구조](https://ko.wikipedia.org/wiki/%EC%9E%90%EB%A3%8C\_%EA%B5%AC%EC%A1%B0)인데, 이는 프로그램 코드의 구조를 표현하는 프로퍼티이기 때문이다. AST는 일반적으로 컴파일러의 [구문 분석](https://ko.wikipedia.org/wiki/%EA%B5%AC%EB%AC%B8\_%EB%B6%84%EC%84%9D) 단계의 결과물이다. 컴파일러가 요구하는 여러 단계를 통해 프로그램의 중간 표현의 역할을 하며 컴파일러의 최종 결과물에 대해 강력한 영향을 준다.
+> 추상 구문 트리는 [컴파일러](https://ko.wikipedia.org/wiki/%EC%BB%B4%ED%8C%8C%EC%9D%BC%EB%9F%AC)에 널리 사용되는 [자료 구조](https://ko.wikipedia.org/wiki/%EC%9E%90%EB%A3%8C_%EA%B5%AC%EC%A1%B0)인데, 이는 프로그램 코드의 구조를 표현하는 프로퍼티이기 때문이다. AST는 일반적으로 컴파일러의 [구문 분석](https://ko.wikipedia.org/wiki/%EA%B5%AC%EB%AC%B8_%EB%B6%84%EC%84%9D) 단계의 결과물이다. 컴파일러가 요구하는 여러 단계를 통해 프로그램의 중간 표현의 역할을 하며 컴파일러의 최종 결과물에 대해 강력한 영향을 준다.
 
 ### 컴파일러와의 관계
 
@@ -185,7 +185,7 @@ AST는 프로그래밍 언어로 작성된 소스 코드의 추상 구문 구조
 > on java 1.5 as well, so it's not completely fragile.
 > ```
 
-lombok 은 위와같은 원리로 <mark style="color:blue;">**컴파일 시점에**</mark>** **<mark style="color:red;">**애노테이션 프로세서**</mark><mark style="color:blue;">**를 사용하여 소스코드의 AST를 조작한다.**</mark>
+lombok 은 위와같은 원리로 <mark style="color:blue;">**컴파일 시점에**</mark>**&#x20;**<mark style="color:red;">**애노테이션 프로세서**</mark><mark style="color:blue;">**를 사용하여 소스코드의 AST를 조작한다.**</mark>
 
 ## Annotation processer 에 대해
 
